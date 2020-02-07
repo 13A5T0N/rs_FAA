@@ -1,96 +1,117 @@
 create database projecten;
 
-create table projecten.gebruiker(
-gebruiker_id int auto_increment,
-gebruiker_naam varchar(50),
-gebruiker_voornaam varchar(50),
-gebruiker_adres varchar(20) not null,
-gebruiker_tel varchar(10) not null,
-gebruiker_email varchar(20),
-gebruiker_afdeling varchar(15) not null,
-gebruiker_password varchar(100) not null,
-
-constraint PK_user primary key (gebruiker_id,gebruiker_naam,gebruiker_voornaam)
+create table projecten.richting(
+richting_id int primary key auto_increment,
+naam varchar(20) 
 );
 
-create index gebruiker_naam_idx
-on projecten.gebruiker(gebruiker_naam, gebruiker_voornaam);
-
-
-create table projecten.student(
-student_id int auto_increment,
-student_naam varchar(50),
-student_voornaam varchar(50),
-student_tel varchar(10) not null,
-student_email varchar(20),
-student_richting varchar(20),
-
-constraint pk_student primary key (student_id, student_naam,student_voornaam)
+create table projecten.rol(
+rol_id int primary key auto_increment,
+naam varchar(20)
 );
 
-create index student_idx 
-on projecten.student(student_naam, student_voornaam);
+create table projecten.persoon(
+persoon_id int auto_increment,
+persoon_naam varchar(50),
+persoon_voornaam varchar(50),
+persoon_tel varchar(10) not null,
+persoon_email varchar(20),
+persoon_adres varchar(20),
+rol_id int, 
+richting_id int, 
+password varchar(100) not null,
+
+constraint pk primary key(persoon_id,persoon_naam,persoon_voornaam),
+constraint FK_rol foreign key (rol_id) references projecten.rol(rol_id),
+constraint FK_richting foreign key (richting_id) references projecten.richting(richting_id)
+);
+
+create index rol 
+on projecten.persoon(rol_id);
+
+create index richting 
+on projecten.persoon(richting_id);
+
+create table projecten.log (
+log_id int auto_increment,
+persoon_id int,
+status varchar(15),
+datum date,
+
+constraint primary key(log_id, persoon_id),
+constraint foreign key (persoon_id) references projecten.persoon(persoon_id) 
+);
 
 create table projecten.bedrijf(
-bedrijf_id int auto_increment,
+bedrijf_id int auto_increment primary key,
 bedrijf_naam varchar(50),
-bedrijf_tel varchar(10),
-bedrijf_mail varchar(20),
-
-constraint bedrijf primary key(bedrijf_id)
-
+bedrijf_tel varchar(15),
+bedrijf_email varchar(20),
+bedrijf_adres varchar(20)
 );
-
-create index bedrijf_idx
-on projecten.bedrijf(bedrijf_naam);
 
 create table projecten.project(
 project_id int auto_increment,
 project_naam varchar(40),
-project_start date default CURRENT_TIMESTAMP,
+persoon_id int,
+project_start date,
 project_eind date,
 project_beschrijving text,
+check(project_eind > project_start),
 
-check (project_eind >= project_start),
-constraint pk_project primary key (project_id) 
+constraint primary key(project_id,project_naam),
+constraint FK_persoon foreign key(persoon_id) references projecten.persoon(persoon_id)
 );
 
-create index project_idx
-on projecten.project(project_naam,project_start,project_eind);
-create table projecten.taak(
-taak_id int auto_increment,
+create index start_datum
+on projecten.project(project_start);
+
+create index eind_datum
+on projecten.project(project_eind);
+
+create table projecten.betrokken(
+betrokken_id int auto_increment primary key,
 project_id int,
-taak_naam varchar(40),
-gebruiker_id int, 
-taak_start date default CURRENT_TIMESTAMP, 
-taak_eind date,
+persoon_id int,
 
-check(taak_eind >= taak_start),
-constraint taak primary key(taak_id,gebruiker_id,project_id),
-constraint taak_fk foreign key  (gebruiker_id) references gebruiker(gebruiker_id),
-constraint project_fk foreign key (project_id) references project(project_id)
+constraint FK_BTpersoon foreign key(persoon_id) references projecten.persoon(persoon_id),
+constraint Fk_BTproject foreign key(project_id) references projecten.project(project_id)
 );
 
-create index taak_idx
-on projecten.taak(taak_naam);
+create table projecten.taak(
+taak_id int auto_increment primary key, 
+project_id int,
+persoon_id int,
+taak_naam varchar(20),
+taak_beschrijving text,
+taak_einde date,
 
-create table projecten.log(
-log_id int auto_increment,
-gebruiker_id int, 
-log_status varchar(7),
-
-constraint PK_log primary key(log_id),
-constraint FK_log foreign key (gebruiker_id) references gebruiker(gebruiker_id)
+constraint FK_TKproject foreign key(project_id) references projecten.project(project_id),
+constraint FK_TKpersoon foreign key(persoon_id) references projecten.persoon(persoon_id)
 );
 
 create table projecten.kwitantie(
-kwitantie_id int auto_increment,
-taak_id int, 
-kwitantie blob,
-kwitantie_description text,
+kwintantie_id int auto_increment primary key,
+taak_id int,
+prijs double,
 
-constraint pk_kwitantie primary key(kwitantie_id),
-constraint fk_kwitantie foreign key (taak_id) references taak(taak_id)
+constraint FK_taak foreign key(taak_id) references projecten.taak(taak_id)
 );
 
+create table projecten.schatting(
+schatting_id int auto_increment primary key,
+taak_id int,
+prijs double,
 
+check(prijs >=0.0),
+constraint FK_SCtaak foreign key(taak_id) references projecten.taak(taak_id)
+);
+
+create table projecten.exacte(
+exacte_id int auto_increment primary key,
+taak_id int,
+prijs double,
+
+check(prijs >= 0.0),
+constraint FK_EXtaak foreign key(exacte_id) references projecten.taak(taak_id)
+);
