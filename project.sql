@@ -54,6 +54,7 @@ create table projecten.project(
 project_id int auto_increment,
 project_naam varchar(40),
 persoon_id int,
+prject_budget double,
 project_start date,
 project_eind date,
 project_beschrijving text,
@@ -98,20 +99,34 @@ prijs double,
 constraint FK_taak foreign key(taak_id) references projecten.taak(taak_id)
 );
 
+create table projecten.materialen(
+materiaal_id int primary key auto_increment,
+materiaal_naam varchar(20),
+materiaal_prijs double,
+project_id int,
+
+constraint FK_PR foreign key(project_id) references projecten.project(project_id)
+);
+
 create table projecten.schatting(
 schatting_id int auto_increment primary key,
 taak_id int,
 prijs double,
+bedrijf_id int,
 
 check(prijs >=0.0),
-constraint FK_SCtaak foreign key(taak_id) references projecten.taak(taak_id)
+constraint FK_SCtaak foreign key(taak_id) references projecten.taak(taak_id),
+constraint FK_Bedrijf foreign key(bedrijf_id) references projecten.bedrijf(bedrijf_id)
 );
 
 create table projecten.exacte(
 exacte_id int auto_increment primary key,
 taak_id int,
 prijs double,
+bedrijf_id int,
+kwitantie blob, 
 
 check(prijs >= 0.0),
-constraint FK_EXtaak foreign key(exacte_id) references projecten.taak(taak_id)
+constraint FK_EXtaak foreign key(exacte_id) references projecten.taak(taak_id),
+constraint FK_Bedr foreign key(bedrijf_id) references projecten.bedrijf(bedrijf_id)
 );
