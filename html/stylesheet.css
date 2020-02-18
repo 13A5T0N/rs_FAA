@@ -1,0 +1,45 @@
+.contact{
+    padding: 4%;
+    height: 400px;
+}
+
+.contact-info{
+    margin-top:10%;
+}
+.contact-info img{
+    margin-bottom: 15%;
+}
+.contact-info h2{
+    margin-bottom: 10%;
+}
+.col-md-9{
+    background: #fff;
+    padding: 4%;
+    margin-left: 30%;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.contact-form label{
+    font-weight:600;
+}
+.contact-form button{
+    
+    background: #5cb85c;
+    color: #fff;
+    font-weight: 600;
+    width: 30%;
+}
+.contact-form button:focus{
+    box-shadow:none;
+}
+.nav
+{
+    padding:10%;
+    text-align: center;
+    font-size: 25px;
+}
+.nav a {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
