@@ -1,4 +1,5 @@
 <?php
+include "conn.php";
 session_start();
 
 // initializing variables
@@ -42,11 +43,10 @@ if (isset($_POST['verzend']))
 
 
 
-$insertquery = "INSERT INTO project (project_naam,persoon_id,project_start,project_eind,project_omschrijving)
+$insertquery = "INSERT INTO project (project_naam,persoon_id,project_start,project_eind,project_beschrijving)
             VALUES ('$projectnaam','$leider','$start}','{$eind}','{$omschrijving}')";
  
  
-echo $db->error; 
 
 $db->query($insertquery);
 
@@ -54,7 +54,7 @@ $db->query($insertquery);
 
 
 
-// header('Location: newprojectform.php');
+ header('Location: newprojectform.php');
 }
 if (isset($_POST['submit']))
  {
