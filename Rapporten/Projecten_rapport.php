@@ -51,10 +51,9 @@ table th {
     error_reporting (E_ALL ^ E_NOTICE ^ E_WARNING);
 
 
-       $res = mysqli_query($conn,"SELECT persoon_naam, project_naam, prject_budget, project_start, project_eind,
-       project_beschrijving, taak_naam FROM persoon t1 inner join project t2 on t1.persoon_id = t2.persoon_id 
-       inner join taak t3 on t2.persoon_id=t3persoon_id");
-
+       $res = mysqli_query($dbhandle,"SELECT persoon.persoon_id, persoon.persoon_naam, project.project_naam, project.prject_budget, project.project_start, project.project_eind,
+       project.project_beschrijving, taak.taak_naam FROM persoon inner join project on persoon.persoon_id = project.persoon_id 
+       inner join taak on project.persoon_id = taak.persoon_id");
 
        if(mysqli_num_rows($res)>0){
            while ($row =mysqli_fetch_assoc($res))
