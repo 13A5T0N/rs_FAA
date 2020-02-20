@@ -165,7 +165,7 @@ include "conn.php";
 </body>
 <script>
 function new_project(){
-    location.replace("test.php")
+    location.replace("projecten_new.php")
 }
 
 </script>
