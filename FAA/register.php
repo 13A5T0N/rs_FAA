@@ -1,5 +1,7 @@
 <?php
 session_start();
+include "security.php";
+
 
 // initializing variables
 
@@ -97,6 +99,36 @@ if (isset($_POST['updatebtn'])) {
 
 
 }
+
+function e($val){
+	global $db;
+	return mysqli_real_escape_string($db, trim($val));
+}
+
+
+if (isset($_POST['login_btn'])){
+
+  $username = e($_POST['username']);
+	$password = e($_POST['password']);
+
+  $query = "SELECT * FROM persoon WHERE persoon_naam='$username' AND password='$password' LIMIT 1";
+  $results = mysqli_query($db, $query);
+
+  if (mysqli_fetch_array($results)) {
+    $_SESSION['username'] = $username;
+    header('location: index.php');
+
+  }else {
+    $_SESSION['status'] = 'Username or Password is Invalid!!';
+    header('location: login.php');
+
+
+  }
+
+
+}
+
+
 
 mysqli_close($db);
 

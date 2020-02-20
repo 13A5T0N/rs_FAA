@@ -1,5 +1,7 @@
 <?php
 include "conn.php";
+include "security.php";
+
 ?>
 
 
@@ -47,7 +49,7 @@ include "conn.php";
 						</a>
 					</li>
 					<li>
-						<a href="projects.php">
+						<a href="#">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>

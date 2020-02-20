@@ -33,6 +33,12 @@ body {
 .header .logo {
 	float: left;
 }
+
+.header .logo1 {
+	float: right;
+	align:right;
+}
+
 .header .logo {
 	height: 44px;
 	z-index: 1;
@@ -226,4 +232,8 @@ body {
 	width: 350px;
 	height: 300px;
 	border: 1px solid #ddd;
+}
+
+.nav-item{
+	list-style: none;
 }
