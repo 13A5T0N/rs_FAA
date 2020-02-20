@@ -83,7 +83,7 @@ include "conn.php";
             <h6 class="m-0 font-weight-bold text-primary">EDIT Admin Profile</h6>
           </div>
           <div class="card-body">
-          <form action="register.php" method="POST">
+          <form action="project_save.php" method="POST">
                   <input type="hidden" name="edit_id" value="">
                   <div class="form-group">
                   <label> Project Naam </label>
@@ -106,15 +106,25 @@ include "conn.php";
                   <input type="date" name="eind" value="" class="form-control" placeholder="Eind Datum">
                   </div>
                   <div class="form-group">
-                  <select name="leider" value="" class="browser-default custom-select  col-sm-12">
-                  <option value="">Project Leider</option>
-                  <option value="1">student</option>
-                  <option value="2">docent</option>
-                  </select>
+                  <input required list="leider" type="text" class="form-control" name="leider" placeholder="Project leider">
+					 <datalist id="leider">
+					 <?php
+					include ('conn.php');
+					 $selectpersoon="select * from projecten.persoon " ;
+					 $result = mysqli_query($conn,$selectpersoon);
+					 if (mysqli_num_rows($result) >0){
+						 while($row =mysqli_fetch_assoc($result)){
+							//  echo "<option value='".$row['persoon_id']." ".$row['persoon_voornaam'] ." ". "$row[persoon_naam])'>".$row['persoon_voornaam'] ." ". "$row[persoon_naam]</option>";
+							echo "<option value=".$row['persoon_id'].">".$row['persoon_voornaam'] ." ". "$row[persoon_naam]</option>";
+						 }
+					 }
+					 
+					  ?>    
+					 </datalist>
                   </div>
 
-                 <a href="listing.php" class="btn btn-danger">CANCEL</a>
-                 <button type="submit" name="updatebtn" class="btn btn-primary">UPDATE</button>
+                 <a href="projects.php" class="btn btn-danger">CANCEL</a>
+                 <button type="submit" name="updatebtn" class="btn btn-primary">SAVE</button>
           </form>
 
 
