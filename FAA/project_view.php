@@ -79,11 +79,6 @@ $project = $_POST["project"];
 <div class = "main-content">
     <div class ="container-fluid">
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    rapport 
-                  </button>
-            </div>
             <div class="card-body">
             <?php
 					if (isset($_SESSION['success']) && $_SESSION['success']!='') {

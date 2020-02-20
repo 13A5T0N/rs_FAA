@@ -39,7 +39,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>
