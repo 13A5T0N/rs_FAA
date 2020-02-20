@@ -43,13 +43,13 @@ include "conn.php";
 			<nav>
 				<ul>
           <li>
-						<a href="#">
+						<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
 							<span>Home</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>
