@@ -77,8 +77,8 @@ include "security.php";
 		</div>
 		<div class="side-nav">
 			<div class="logo">
-				<i class="fa fa-tachometer"></i>
-				<span>Brand</span>
+        <img src="photos/logo.png">
+				<span>NATIN</span>
 			</div>
 			<nav>
 				<ul>
