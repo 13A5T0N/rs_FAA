@@ -14,6 +14,7 @@ include "conn.php";
     <title>Document</title>
 </head>
 <body>
+<<<<<<< HEAD
   <div class="container-fluid">
   <img src="../Img/logo.png" alt="" class=" rounded mx-auto d-block float-left">
   <div class="sum">
@@ -82,6 +83,80 @@ if (mysqli_num_rows($result) > 0) {
 } else {
   echo "0 results";
 }
+=======
+<br><br>
+<div class="mx-auto" style="width: 200px;">
+<h2><img src="../img/logo.png" alt="" class="" width="90">Projecten Overzicht</h2>
+</div>
+<div class="col-md-7 col-xs-10 pull-left">
+<table class="table table-bordered table-sm table-hover"  >
+<thead class="thead-dark">
+    <tr> 
+      <th scope="col" >Project beschrijving</th>
+      <th scope="col">Taken</th>
+      <th scope="col">Naam</th>
+      <th scope="col">Start datum</th>
+      <th scope="col">Eind datum</th>
+    </tr>
+  </thead>
+
+  
+               
+                
+
+
+            
+
+    <?php include_once "conn.php";
+    error_reporting (E_ALL ^ E_NOTICE ^ E_WARNING);
+
+
+       $res = mysqli_query($dbhandle,"SELECT persoon.persoon_id, persoon.persoon_naam, project.project_naam, project.prject_budget, project.project_start, project.project_eind,
+       project.project_beschrijving, taak.taak_naam FROM persoon inner join project on persoon.persoon_id = project.persoon_id 
+       inner join taak on project.persoon_id = taak.persoon_id");
+
+       if(mysqli_num_rows($res)>0){
+           while ($row =mysqli_fetch_assoc($res))
+           {
+               $naam= $row['persoon_naam'];
+               $voor= $row['persoon_voornaam'];
+               $Projectnaam= $row['project_naam'];
+               $budget = $row['prject_budget'];
+               $datumstart= $row['project_start'];
+               $datumeind = $row['project_eind'];
+               $beschrijving = $row['project_beschrijving'];
+               $Taaknaam = $row['taak_naam'];
+        
+
+                  echo "<tr>
+                    <td>$beschrijving</td>
+                    <td>$Taaknaam</td>
+                      <td>$naam</td>
+                      <td>$datumstart</td>
+                      <td>$datumeind</td>
+                      
+                      </tr>";
+    }
+    }
+                  else {
+                    //echo "Helaas niet gelukt";
+                  }
+
+
+
+
+
+    mysqli_close($conn);
+
+
+  ?>
+
+</div>
+
+
+  
+  </table>
+>>>>>>> d57743de35e3d3bdca8283954db41396289690b5
 
 mysqli_close($conn);
         ?>
