@@ -107,7 +107,20 @@ $project = $_POST["project"];
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>
-
+<div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">
+		  <form action="project_rapport.php" method="post">
+		 
+		  <?php
+		  echo "
+		  <button type='submit' class='btn btn-primary' name ='project' value ='".$project."'>
+		  rapport 
+		</button>";
+		  ?>
+		  </form>
+                  
+          </h6>
+        </div>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <tbody>
 								<?php
