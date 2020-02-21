@@ -199,7 +199,9 @@ include "conn.php";
           <div class="table-responsive">
           <?php
 
-          $query = "SELECT project_id, project_naam, project_eind FROM project";
+          $query = "SELECT project_id, project_naam, project_eind FROM project 
+          order by project_id desc 
+          limit 5 ";
           $query_run = mysqli_query($conn, $query);
 
            ?>
@@ -225,8 +227,8 @@ include "conn.php";
                 <td> <?php echo $row['project_naam']; ?> </td>
                 <td> <?php echo $row['project_eind']; ?> </td>
                 <td>
-                    <form action="dash_show.php" method="post">
-                        <input type="hidden" name="edit_id" value="<?php echo $row['project_id']; ?>">
+                    <form action="project_view.php" method="post">
+                        <input type="hidden" name="project" value="<?php echo $row['project_id']; ?>">
                         <button  type="submit" name="edit_btn" class="btn btn-success"><span><i class="fa fa-eye"></i></span></button>
                     </form>
                 </td>
