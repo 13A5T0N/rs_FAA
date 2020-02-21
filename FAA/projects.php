@@ -50,13 +50,13 @@ include "conn.php";
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
 							<span>Taken</span>
 						</a>

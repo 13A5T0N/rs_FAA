@@ -84,7 +84,7 @@ include "security.php";
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>
@@ -96,7 +96,7 @@ include "security.php";
 						</a>
 					</li>
 					<li>
-						<a href="Projecten_rapport.php">
+						<a href="#">
 							<span><i class="fa fa-book"></i></span>
 							<span>Rapporten</span>
 						</a>
