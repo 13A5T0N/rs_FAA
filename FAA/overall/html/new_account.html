@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Title</title>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	</head>
+	<body>
+	<div class="header">
+		<ul class="nav justify-content-end">
+			<li class="nav-item">
+				<a href="" class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+					<span class="mr-2 d-none d-lg-inline text-gray">user</span>
+					<i class="fa fa-user"></i>
+				</a>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Action</a>
+					<a class="dropdown-item" href="#">Another action</a>
+					<a class="dropdown-item" href="#">Something else here</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" href="#">Separated link</a>
+				  </div>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="side-nav">
+		<div class="text-center brand">
+			<span class="text-uppercase font-weight-bold text-white">Company</span>
+		</div>
+		<nav class="nav flex-column text-center ">
+			<a href="dashboard.php" class="nav-link text-white font-weight-bolder">
+				Home
+			</a>
+			<a class="nav-link text-white" data-toggle="collapse" href="#account" role="button" aria-expanded="false" aria-controls="collapseExample">
+				<span>Accounts</span>
+				<span><i class="fa fa-arrow-down"></i></span>
+        	 </a>
+			<div class="collapse" id="account">
+				<nav class="nav flex-column text-center">
+					<a href="account_overview.html" class="nav-link text-white">
+						overview
+					</a>
+					<a href="#" class="nav-link text-white">
+						Groups
+					</a>
+					<a href="#" class="nav-link text-white">
+						New Account
+					</a>
+				</nav>
+			</div>
+			
+			<a class="nav-link text-white" data-toggle="collapse" href="#project" role="button" aria-expanded="false" aria-controls="collapseExample">
+				<span>Projects</span>
+				<span><i class="fa fa-arrow-down"></i></span>
+        	 </a>
+			<div class="collapse" id="project">
+				<nav class="nav flex-column text-center">
+					<a href="#" class="nav-link text-white">
+						overview
+					</a>
+					<a href="#" class="nav-link text-white">
+						New Project
+					</a>
+				</nav>
+			</div>
+
+			<a href="#" class="nav-link text-white">
+				Notifacation
+			</a>
+
+			<a href="#" class="nav-link text-white">
+				settings
+			</a>
+			
+            
+		</nav>
+	</div>
+
+	<div class="container">
+        <div class="row">
+            <div class="col-10">
+                <div class="new_proj">
+                    <div class="head">
+                        <h2>Create new Account</h2>  
+                    </div>
+                    <hr style="width: 100%;">
+                    <form action="" method="post">
+                        <div class="col-4">
+                            <div class="first_name">
+                                <h6 class="text-secondary tesxt-xs">First name</h6>
+                                <input type="text" name="" id="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <div class="last_name">
+                                <h6 class="text-secondary text-xs">Last name</h6>
+                                <input type="text" name="" id="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mt-3">
+                            <div class="email">
+                                <h6 class="text-secondary text-xs">Email address</h6>
+                                <input type="email" name="" id="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mt-3">
+                            <div class="tel">
+                                <h6 class="text-secondary text-xs">Telephone number</h6>
+                                <input type="text" name="" id="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mt-3">
+                            <div class="adres">
+                                <h6 class="text-secondary text-xs">Address</h6>
+                                <input type="text" name="" id="" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-6 mt-3">
+                            <div class="richting">
+                                <h6 class="text-secondary text-xs">Richting</h6>
+                                <input type="text" name="" id="" class="form-control">
+                            </div>
+                        </div>
+                       
+                        <div class="col-4 mt-3">
+                            <div class="role">
+                                <h6 class="text-secondary text-xs">Role</h6>
+                                <select class="custom-select">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="col-8">
+                            <div class="level">
+                                <h6 class="text-secondary text-xs">Level</h6>
+                                <select class="custom-select">
+                                    <option selected>Open this select menu</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="proj_submit">
+                            <button type="button" class="btn btn-success">Submit</button>
+                        </div>
+                        <div class="proj_cancel">
+                            <button type="button" class="btn btn-danger">Cancel</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+           
+        </div>
+	</div>
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="../js/main.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+	</body>
+</html>

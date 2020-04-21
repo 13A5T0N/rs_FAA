@@ -1,0 +1,79 @@
+body{
+    overflow-x: hidden;
+}
+
+.notifaction{
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.project-view{
+    margin-top: 5%;
+    margin-left: 10%;
+}
+
+
+.project-overview{
+    margin-top: 5%;
+    margin-left: 14%;
+
+    
+}
+
+.new_proj{
+    margin-left: 14%;
+    margin-top: 5%;
+}
+.proj_lead{
+    margin-top: 1%;
+}
+
+
+
+.start_date{
+    width: 40%;
+    margin-top: 1%;
+}
+.end_date{
+    margin-left: 60%;
+    margin-top: -7%;
+}
+
+.proj_submit{
+    margin-top: 2%;
+}
+
+.proj_cancel{
+    margin-left: 15%;
+    margin-top: -4.8%;
+}
+.report_header{
+    margin-top: 5%;
+    margin-left: 15%;
+    width: 100%;
+    position: sticky;
+}
+
+.project_details{
+    margin-left: 15%;
+}
+
+.task-list{
+    margin-left: 15%;
+    width: 100%;
+}
+
+.last_name{
+    margin-left: 20vw;
+    margin-top: -10vh;
+}
+
+.level{
+    margin-left: 20vw;
+    margin-top: -10vh;
+}
+
+.task_info{
+    margin-top: 6vh;
+    margin-left: 20vw;
+}
