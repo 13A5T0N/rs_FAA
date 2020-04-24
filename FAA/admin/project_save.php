@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+include "../conn.php";
 $naam = $_POST["naam"];
 $beschrijving = $_POST["beschrijving"];
 $budget = $_POST["budget"];

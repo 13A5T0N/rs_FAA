@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "security.php";
+include "../security.php";
 
 
 // initializing variables
@@ -47,9 +47,9 @@ $insertquery = "INSERT INTO persoon (persoon_naam,persoon_voornaam,persoon_tel,p
 
 $db->query($insertquery);
 
+echo $db ->error;
 
-
-header('Location: listing.php');
+// header('Location: listing.php');
 }
 
 
@@ -87,11 +87,11 @@ if (isset($_POST['updatebtn'])) {
   $query = "UPDATE persoon SET persoon_naam ='$naam', persoon_voornaam='$voornaam', persoon_tel='$telefoon', persoon_email='$email', persoon_adres='$adres', rol_id= '$rol', richting_id= '$richting' WHERE persoon_id='$id' ";
   $query_run = mysqli_query($db, $query);
   if ($query_run) {
-    $_SESSION['success'] = 'Your Data is Updated';
+    // $_SESSION['success'] = 'Your Data is Updated';
     header('Location:listing.php');
     exit();
   } else {
-    $_SESSION['status'] = 'Your Data is NOT Updated';
+    // $_SESSION['status'] = 'Your Data is NOT Updated';
     //header('Location:listing.php');
     echo $db->error;
 

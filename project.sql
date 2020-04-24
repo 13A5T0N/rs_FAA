@@ -19,7 +19,7 @@ persoon_email varchar(20),
 persoon_adres varchar(20),
 rol_id int, 
 richting_id int, 
-password varchar(100) not null,
+password varchar(100) ,
 
 constraint pk primary key(persoon_id,persoon_naam,persoon_voornaam),
 constraint FK_rol foreign key (rol_id) references projecten.rol(rol_id),

@@ -1,5 +1,5 @@
 <?php
-include "conn.php";
+include "../conn.php";
 $project_id = $_POST["project"];
 $sql = "select  project_naam,  prject_budget, project_start, project_eind, persoon_naam, persoon_voornaam
 from	project, persoon
@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="rapport.css">
+    <link rel="stylesheet" href="../css/rapport.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 </head>
 <body>
   <div class="container-fluid">
-  <img src="logo.png" alt="" class=" rounded mx-auto d-block float-left">
+  <img src="../photos/logo.png" alt="" class=" rounded mx-auto d-block float-left">
   <div class="sum">
   <h1 class ="text-center bg-dark text-white">Project Summary</h1>
   <div class="project_info  col-s4">

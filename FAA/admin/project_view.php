@@ -1,5 +1,6 @@
 <?php
-include "conn.php";
+include_once "../conn.php";
+$project = $_POST["project"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ include "conn.php";
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
@@ -28,17 +29,16 @@ include "conn.php";
     <title>FAA</title>
 </head>
 <body>
-<div class="header">
-			<div class="logo">
+   <div class="header">
+   <div class="logo">
 				<i class="fa fa-tachometer"></i>
 				<span>Brand</span>
 			</div>
 			<a href="#" class="nav-trigger"><span></span></a>
-		</div>
-
-        <div class="side-nav">
+   </div> 
+   <div class="side-nav">
 			<div class="logo">
-				<img src="photos/logo.png">
+				<img src="../photos/logo.png">
 				<span>NATIN</span>
 			</div>
 			<nav>
@@ -56,7 +56,7 @@ include "conn.php";
 						</a>
 					</li>
 					<li>
-						<a href="taakform.php">
+						<a href="#">
 							<span><i class="fa fa-tasks"></i></span>
 							<span>Taken</span>
 						</a>
@@ -76,21 +76,11 @@ include "conn.php";
 				</ul>
 			</nav>
 		</div>
-        <div class ="main-content">
-        <div class="title">
-        projecten overzicht
-        </div>
-        <div class ="container-fluid">
+<div class = "main-content">
+    <div class ="container-fluid">
         <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Projecten
-                  <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Add project 
-                  </button>
-          </h6>
-        </div>
-        <div class="card-body">
-					<?php
+            <div class="card-body">
+            <?php
 					if (isset($_SESSION['success']) && $_SESSION['success']!='') {
 						echo '<p> '.$_SESSION['success'].' <p>';
 							unset($_SESSION['success']);
@@ -100,31 +90,38 @@ include "conn.php";
 						echo '<p class="bg-info"> '.$_SESSION['status'].' <p>';
 							unset($_SESSION['status']);
 					}
+
+
+
 					 ?>
 
-
-          <div class="table-responsive">
+                      <div class="table-responsive">
 						<?php
 
-						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , project_start, project_eind
+						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , prject_budget, project_start, project_eind, project_beschrijving
                         from project, persoon
                         where 
-                        project.persoon_id = persoon.persoon_id";
+                        project.persoon_id = persoon.persoon_id
+                        and 
+                        project_id = $project ";
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>
-
+<div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">
+		  <form action="project_rapport.php" method="post">
+		 
+		  <?php
+		  echo "
+		  <button type='submit' class='btn btn-primary' name ='project' value ='".$project."'>
+		  rapport 
+		</button>";
+		  ?>
+		  </form>
+                  
+          </h6>
+        </div>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>project naam</th>
-                  <th>start datum</th>
-                  <th>eind datum</th>
-				  <th>project Leider</th>
-                  <th>Show </th>
-                </tr>
-              </thead>
               <tbody>
 								<?php
 								if (mysqli_num_rows($query_run) > 0) {
@@ -133,17 +130,28 @@ include "conn.php";
 										?>
 
                 <tr>
-                  <td> <?php echo $row['project_id']; ?> </td>
-                  <td> <?php echo $row['project_naam']; ?> </td>
-                  <td> <?php echo $row['project_start']; ?> </td>
-                  <td> <?php echo $row['project_eind']; ?> </td>
-				  <td> <?php echo $row['persoon_naam']." ".$row['persoon_voornaam']; ?> </td>
-                  <td>
-                      <form action="project_view.php" method="post">
-                          <input type="hidden" name="project" value="<?php echo $row['project_id']; ?>">
-                          <button  type="submit" name="edit_btn" class="btn btn-success">show</button>
-                      </form>
-                  </td>
+                    <td>Project naam</td>
+                    <td><?php echo $row['project_naam']; ?> </td>
+                </tr>
+                <tr>
+                <td> Project omschrijving</td>
+                <td><?php echo $row['project_beschrijving']; ?></td>
+                </tr>
+                <tr>
+                    <td>Start Datum</td>
+                    <td><?php echo $row['project_start']; ?></td>
+                </tr>
+                <tr>
+                <td>Eind Datum</td>
+                <td><?php echo $row['project_eind']; ?></td>
+                </tr>
+                <tr>
+                <td>Start Budget</td>
+                <td><?php echo $row['prject_budget']; ?></td>
+                </tr>
+                <tr>
+                <td>Project Leider</td>
+                <td><?php echo $row['persoon_naam']." ".$row['persoon_voornaam']; ?></td>
                 </tr>
 								<?php
 							}
@@ -157,16 +165,11 @@ include "conn.php";
             </table>
 
           </div>
+            </div>
         </div>
-        </div>
-        </div>
-        </div>
-       
-</body>
-<script>
-function new_project(){
-    location.replace("projecten_new.php")
-}
+    </div>
+</div>
 
-</script>
+</body>
+
 </html>

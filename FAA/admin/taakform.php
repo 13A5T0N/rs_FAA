@@ -1,5 +1,5 @@
 <?php session_start();
-include "security.php";
+include "../security.php";
  ?>
 
 
@@ -13,7 +13,7 @@ include "security.php";
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -39,10 +39,10 @@ include "security.php";
 				<li class="nav-item dropdown no-arrow">
 					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="mr-2 d-none d-lg-inline text-gray-600 small">
-							<?php echo $_SESSION['username']; ?>
+							<!-- <?php echo $_SESSION['username']; ?> -->
 
 						</span>
-						<img class="img-profile rounded-circle" src="photos/user.png">
+						<img class="img-profile rounded-circle" src="../photos/user.png">
 					</a>
 					<!-- Dropdown - User Information -->
 					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -77,7 +77,7 @@ include "security.php";
 		</div>
 		<div class="side-nav">
 			<div class="logo">
-        <img src="photos/logo.png">
+        <img src="../photos/logo.png">
 				<span>NATIN</span>
 			</div>
 			<nav>
@@ -141,14 +141,14 @@ include "security.php";
 
                                   <div class="container contact">
                                   	<form method="post" action="taken.php">
-                                  		<?php include('errors.php'); ?>
+                                  		<?php include('../errors.php'); ?>
 
                                   					<div class="form-group">
 
                                   					  <div class="col-sm-10">
                                   						<input required list="project" type="text" class="form-control"  placeholder="Projectnaam" name="project">
                                   						<datalist id="project">
-                                                <?php include ('conn.php');
+                                                <?php include ('../conn.php');
                                   					 $selectproject="select * from projecten.project " ;
                                   					 $result = mysqli_query($conn,$selectproject);
                                   					 if (mysqli_num_rows($result) >0){

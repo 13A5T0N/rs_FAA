@@ -1,6 +1,6 @@
 <?php include('register.php');
-include "conn.php";
-include "security.php";
+include "../conn.php";
+include "../security.php";
 
 
 ?>
@@ -16,7 +16,7 @@ include "security.php";
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
@@ -35,10 +35,10 @@ include "security.php";
 				<li class="nav-item dropdown no-arrow">
 					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<span class="mr-2 d-none d-lg-inline text-gray-600 small">
-							<?php echo $_SESSION['username']; ?>
+							<!-- <?php echo $_SESSION['username']; ?> -->
 
 						</span>
-						<img class="img-profile rounded-circle" src="photos/user.png">
+						<img class="img-profile rounded-circle" src="../photos/user.png">
 					</a>
 					<!-- Dropdown - User Information -->
 					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -71,7 +71,7 @@ include "security.php";
 		</div>
 		<div class="side-nav">
 			<div class="logo">
-				<img src="photos/logo.png">
+				<img src="../photos/logo.png">
 				<span>NATIN</span>
 			</div>
 
@@ -125,7 +125,7 @@ include "security.php";
               </button>
             </div>
             <form action="register.php" method="POST">
-							<?php include('errors.php'); ?>
+							<?php include('../errors.php'); ?>
 
 
               <div class="modal-body">
@@ -224,14 +224,14 @@ include "security.php";
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>persoon_id</th>
-                  <th>persoon_naam</th>
-                  <th>persoon_voornaam</th>
-                  <th>persoon_tel</th>
-									<th>persoon_email</th>
-									<th>persoon_adres</th>
-									<th>rol</th>
-									<th>richting</th>
+                  <th>#</th>
+                  <th>Naam</th>
+                  <th>Voornaam</th>
+                  <th>Tel</th>
+									<th>Email</th>
+									<th>Adres</th>
+									<th>Rol</th>
+									<th>Richting</th>
                   <th>EDIT </th>
                 </tr>
               </thead>
