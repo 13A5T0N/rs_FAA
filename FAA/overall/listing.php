@@ -23,7 +23,7 @@ include "../security.php";
 		<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 		<script src="https://code.highcharts.com/highcharts.js"></script>
 		<script src="https://code.highcharts.com/modules/data.js"></script>
-		<script src="../main.js"></script>
+		<script src="main.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -153,11 +153,14 @@ include "../security.php";
 											<select name="rol" class="browser-default custom-select  col-sm-12">
 					            <option value="">rol</option>
 					            <option value="1">student</option>
-				            	<option value="2">docent</option>
+								<option value="2">docent</option>
+								<option value="4">administratie</option>
+								<option value="3">Fin</option>
+								<option value="5">overall user</option>
 				              </select>
                   </div>
 									<div class="form-group">
-										<select name="richting" class="browser-default custom-select  col-sm-12">
+					  <select name="richting" class="browser-default custom-select  col-sm-12">
 	                  <option value="">richting</option>
 	                  <option value="1">ICT</option>
 	                  <option value="2">AV</option>
@@ -216,8 +219,7 @@ include "../security.php";
 						<?php
 
 						$query = "SELECT persoon_id, persoon_email, persoon_naam, persoon_voornaam, persoon_tel, persoon_adres,richting.naam as richting ,rol.naam as rol
-						FROM persoon, rol, richting where persoon.richting_id = richting.richting_id and persoon.rol_id  = rol.rol_id
-						and rol.naam in('docent','student')";
+                      FROM persoon, rol, richting where persoon.richting_id = richting.richting_id and persoon.rol_id  = rol.rol_id";
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>

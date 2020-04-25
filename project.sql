@@ -124,9 +124,10 @@ exacte_id int auto_increment primary key,
 taak_id int,
 prijs double,
 bedrijf_id int,
-kwitantie blob, 
+kwitantie blob,
+datum date, 
 
 check(prijs >= 0.0),
-constraint FK_EXtaak foreign key(exacte_id) references projecten.taak(taak_id),
+constraint FK_EXtaak foreign key(taak_id) references projecten.taak(taak_id),
 constraint FK_Bedr foreign key(bedrijf_id) references projecten.bedrijf(bedrijf_id)
 );
