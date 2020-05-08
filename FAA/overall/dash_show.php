@@ -1,6 +1,6 @@
 <?php session_start();
-include "../security.php";
-include "../conn.php";
+include "security.php";
+include "conn.php";
 
  ?>
 
@@ -15,7 +15,7 @@ include "../conn.php";
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
 
@@ -37,8 +37,7 @@ include "../conn.php";
 							<?php echo $_SESSION['username']; ?>
 
 						</span>
-            
-						<img class="img-profile rounded-circle" src="../photos/user.png">
+						<img class="img-profile rounded-circle" src="photos/user.png">
 					</a>
 					<!-- Dropdown - User Information -->
 					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -73,7 +72,7 @@ include "../conn.php";
 		</div>
 		<div class="side-nav">
 			<div class="logo">
-        <img src="../photos/logo.png">
+        <img src="photos/logo.png">
 				<span>NATIN</span>
 			</div>
 			<nav>
@@ -85,7 +84,7 @@ include "../conn.php";
 						</a>
 					</li>
 					<li>
-						<a href="projects.php">
+						<a href="#">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>
@@ -117,106 +116,29 @@ include "../conn.php";
       </div>
       <br>
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-          <!-- Content Row -->
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Niet gestart</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fa fa-times fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">In progress</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fa fa-spinner fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Finished</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">16</div>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fa fa-check-circle-o fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Overdue</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fa fa-exclamation-circle fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Content Row -->
 
           <div class="table-responsive">
           <?php
 
-          $query = "SELECT project_id, project_naam, project_eind FROM project 
-          order by project_id desc 
-          limit 5 ";
+          if (isset($_POST['edit_btn'])) {
+          $id = $_POST['edit_id'];
+          $query = "SELECT project_id, project_naam, project_budget, project_start, project_eind, project_beschrijving, persoon.persoon_naam as naam FROM project, persoon WHERE project.persoon_id = persoon.persoon_id AND project_id='$id'";
           $query_run = mysqli_query($conn, $query);
-
            ?>
 
           <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
-                <th>#</th>
-                <th>project naam</th>
-                <th>eind datum</th>
-                <th>show more</th>
-              </tr>
-            </thead>
-            <tbody>
+              <th>project_id</th>
+              <th>project_naam</th>
+              <th>persoon_id</th>
+              <th>project_budget</th>
+              <th>project_start</th>
+              <th>project_eind</th>
+              <th>project_beschrijving</th>
+                </tr>
+             </thead>
+                <tbody>
               <?php
               if (mysqli_num_rows($query_run) > 0) {
                 while ($row = mysqli_fetch_assoc($query_run)) {
@@ -226,24 +148,27 @@ include "../conn.php";
               <tr>
                 <td> <?php echo $row['project_id']; ?> </td>
                 <td> <?php echo $row['project_naam']; ?> </td>
+                <td> <?php echo $row['naam']; ?> </td>
+                <td> <?php echo $row['project_budget']; ?> </td>
+                <td> <?php echo $row['project_start']; ?> </td>
                 <td> <?php echo $row['project_eind']; ?> </td>
-                <td>
-                    <form action="project_view.php" method="post">
-                        <input type="hidden" name="project" value="<?php echo $row['project_id']; ?>">
-                        <button  type="submit" name="edit_btn" class="btn btn-success"><span><i class="fa fa-eye"></i></span></button>
-                    </form>
-                </td>
-                </tr>
+                <td> <?php echo $row['project_beschrijving']; ?> </td>
+              </tr>
+
+
               <?php
             }
           }else {
             echo "No records found";
           }
+        }
 
            ?>
 
             </tbody>
           </table>
+          <a href="index.php" class="btn btn-danger">BACK</a>
+
 
         </div>
 

@@ -1,38 +1,29 @@
 <?php
- ?>
+include_once "conn.php";
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login page</title>
-    <link rel="stylesheet" type="text/css" href="./css/login.css">
-  </head>
-  <body>
-    <div class="header">
-      <h2>Login</h2>
-      <?php
-      if (isset($_SESSION['status']) && $_SESSION['status']!='') {
-        echo '<p class="bg-danger text-white"> '.$_SESSION['status'].' <p>';
-          unset($_SESSION['status']);
-      }
-  ?>
-    </div>
-    <form action="register.php" method="post">
-      <div class="input-group">
-        <label>Username</label>
-        <input type="text" name="username" required>
-      </div>
 
-      <div class="input-group">
-        <label>Password</label>
-        <input type="password" name="password" required>
-      </div>
+$username = mysqli_real_escape_string($conn,$_POST['username']);
+$password = mysqli_real_escape_string($conn,$_POST['password']);
 
-      <div class="input-group">
-      <button type="submit" class="btn" name="login_btn">Login</button>
-    </div>
+$query = "SELECT * FROM persoon WHERE persoon_naam='$username' AND password='$password' LIMIT 1";
+$results = mysqli_query($conn, $query);
+$usertypes = mysqli_fetch_array($results);
 
-    </form>
-  </body>
-</html>
+//5=allaround 3=admin 4=financiele
+
+if ($usertypes['rol_id'] == "5") {
+  $_SESSION['username'] = $username;
+  header('location: overall/');
+}
+elseif ($usertypes['rol_id'] == "3") {
+  $_SESSION['username'] = $username;
+  header('location: admin/');
+} 
+// elseif ($usertypes['rol_id'] == "4") {
+//   $_SESSION['username'] = $username;
+//   header('location: ');
+//   }
+else{
+  $_SESSION['status'] = 'Username or Password is Invalid!!';
+  header('location: index.php');
+  }

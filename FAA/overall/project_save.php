@@ -21,4 +21,3 @@ $query = "INSERT INTO `project`( `project_naam`, `persoon_id`, `prject_budget`, 
  VALUES ('$naam',$leider,'$budget','$start','$eind','$beschrijving')";
 $conn->query($query);
 header('Location: projects.php');
-?>

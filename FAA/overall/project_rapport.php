@@ -1,11 +1,11 @@
 <?php
 include "../conn.php";
 $project_id = $_POST["project"];
-$sql = "select  project_naam,  prject_budget, project_start, project_eind, persoon_naam, persoon_voornaam
+$sql = "select  project_naam,  project_budget, project_start, project_eind, persoon_naam, persoon_voornaam
 from	project, persoon
-where 
+where
 project.persoon_id = persoon.persoon_id
-and 
+and
 project_id = $project_id";
 $result = $conn->query($sql);
 
@@ -14,8 +14,8 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
         $project = $row["project_naam"];
         $leider = $row["persoon_naam"];
-        $voornaam= $row["persoon_voornaam"]; 
-        $budget = $row["prject_budget"];
+        $voornaam= $row["persoon_voornaam"];
+        $budget = $row["project_budget"];
         $start = $row["project_start"];
         $eind = $row["project_eind"];
     }
@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/rapport.css">
+    <link rel="stylesheet" href="rapport.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -62,8 +62,8 @@ if ($result->num_rows > 0) {
         <td>Eind Datum</td>
         <td><?php echo $eind; ?></td>
       </tr>
-    </table>  
- 
+    </table>
+
   </div>
   <div class="taken">
     <h1 class="text-center bg-dark text-white">Taken</h1>
@@ -80,11 +80,11 @@ if ($result->num_rows > 0) {
         $nr = 1;
 $sql = "select  persoon_naam,persoon_voornaam, taak_naam, taak_beschrijving, taak_einde
 from taak, persoon, project
-where 
+where
 project.project_id = taak.project_id
-and 
+and
 persoon.persoon_id = taak.persoon_id
-and 
+and
 project.project_id = $project_id
 ";
 
@@ -103,7 +103,7 @@ if (mysqli_num_rows($result) > 0) {
       ";
       $nr++;
   }
-} 
+}
 
 mysqli_close($conn);
         ?>

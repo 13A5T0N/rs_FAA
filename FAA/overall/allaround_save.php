@@ -29,6 +29,8 @@ if (isset($_POST['registerbtn']))
   $adres=mysqli_real_escape_string($db,$_POST['adres']);
   $rol=mysqli_real_escape_string($db,$_POST['rol']);
   $richting=mysqli_real_escape_string($db,$_POST['richting']);
+  $password=mysqli_real_escape_string($db,$_POST['password']);
+
 
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -42,18 +44,15 @@ if (isset($_POST['registerbtn']))
 
 
 //insert into database
-$insertquery = "INSERT INTO persoon (persoon_naam,persoon_voornaam,persoon_tel,persoon_email,persoon_adres,rol_id,richting_id)
-            VALUES ('{$naam}','{$voornaam}','{$telefoon}','{$email}','{$adres}','{$rol}','{$richting}')";
+$insertquery = "INSERT INTO persoon (persoon_naam,persoon_voornaam,persoon_tel,persoon_email,persoon_adres,rol_id,richting_id,password)
+            VALUES ('{$naam}','{$voornaam}','{$telefoon}','{$email}','{$adres}','{$rol}','{$richting}','{$password}')";
 
 $db->query($insertquery);
 
 
 
-header('Location: listing.php');
+header('Location: allaround.php');
 }
-
-
-
 
 if (isset($_POST['updatebtn'])) {
   $id = $_POST['edit_id'];
@@ -61,6 +60,7 @@ if (isset($_POST['updatebtn'])) {
   $voornaam = $_POST['edit_voornaam'];
   $telefoon = $_POST['edit_telefoon'];
   $email = $_POST['edit_email'];
+  $password = $_POST['edit_pass'];
   $adres = $_POST['edit_adres'];
   $rol = $_POST['edit_rol'];
   $richting = $_POST['edit_richting'];
@@ -84,11 +84,11 @@ if (isset($_POST['updatebtn'])) {
 
 
 
-  $query = "UPDATE persoon SET persoon_naam ='$naam', persoon_voornaam='$voornaam', persoon_tel='$telefoon', persoon_email='$email', persoon_adres='$adres', rol_id= '$rol', richting_id= '$richting' WHERE persoon_id='$id' ";
+  $query = "UPDATE persoon SET persoon_naam ='$naam', persoon_voornaam='$voornaam', persoon_tel='$telefoon', persoon_email='$email', persoon_adres='$adres', rol_id= '$rol', richting_id= '$richting', password= '$password' WHERE persoon_id='$id' ";
   $query_run = mysqli_query($db, $query);
   if ($query_run) {
     $_SESSION['success'] = 'Your Data is Updated';
-    header('Location:listing.php');
+    header('Location:allaround.php');
     exit();
   } else {
     $_SESSION['status'] = 'Your Data is NOT Updated';
@@ -100,43 +100,28 @@ if (isset($_POST['updatebtn'])) {
 
 }
 
-function e($val){
-	global $db;
-	return mysqli_real_escape_string($db, trim($val));
-}
+if (isset($_POST['delete_btn'])) {
+
+  $id = $_POST['delete_id'];
 
 
-if (isset($_POST['login_btn'])){
+  $query1 = "DELETE FROM persoon WHERE persoon_id= $id  ";
+  $query1_run = mysqli_query($db, $query1);
+  echo $db->error;
 
-  $username = e($_POST['username']);
-	$password = e($_POST['password']);
-
-  $query = "SELECT * FROM persoon WHERE persoon_naam='$username' AND password='$password' LIMIT 1";
-  $results = mysqli_query($db, $query);
-  $usertypes = mysqli_fetch_array($results);
-
-//5=allaround 3=admin 4=financiele
-
-  if ($usertypes['rol_id'] == "5") {
-    $_SESSION['username'] = $username;
-    header('location: allaround.php');
-
-  } elseif ($usertypes['rol_id'] == "3") {
-    $_SESSION['username'] = $username;
-    header('location: index.php');
-
-  } elseif ($usertypes['rol_id'] == "4") {
-    $_SESSION['username'] = $username;
-    header('location: ');
-  }else {
-    $_SESSION['status'] = 'Username or Password is Invalid!!';
-    header('location: login.php');
-  }
+  // if ($query1_run) {
+  //   $_SESSION['success'] = 'Your Data is Deleted';
+  //   header('Location:allaround.php');
+  // } else {
+  //   $_SESSION['status'] = 'Your Data is not Deleted';
+  //   header('Location:allaround.php');
+  // }
 
 }
 
 
 
-mysqli_close($db);
 
-?>
+
+
+ ?>

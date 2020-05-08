@@ -98,7 +98,7 @@ $project = $_POST["project"];
                       <div class="table-responsive">
 						<?php
 
-						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , prject_budget, project_start, project_eind, project_beschrijving
+						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , project_budget, project_start, project_eind, project_beschrijving
                         from project, persoon
                         where 
                         project.persoon_id = persoon.persoon_id
@@ -147,7 +147,7 @@ $project = $_POST["project"];
                 </tr>
                 <tr>
                 <td>Start Budget</td>
-                <td><?php echo $row['prject_budget']; ?></td>
+                <td><?php echo $row['project_budget']; ?></td>
                 </tr>
                 <tr>
                 <td>Project Leider</td>

@@ -1,7 +1,7 @@
 <?php
 include "../conn.php";
 $project_id = $_POST["project"];
-$sql = "select  project_naam,  prject_budget, project_start, project_eind, persoon_naam, persoon_voornaam
+$sql = "select  project_naam,  project_budget, project_start, project_eind, persoon_naam, persoon_voornaam
 from	project, persoon
 where 
 project.persoon_id = persoon.persoon_id
@@ -15,7 +15,7 @@ if ($result->num_rows > 0) {
         $project = $row["project_naam"];
         $leider = $row["persoon_naam"];
         $voornaam= $row["persoon_voornaam"]; 
-        $budget = $row["prject_budget"];
+        $budget = $row["project_budget"];
         $start = $row["project_start"];
         $eind = $row["project_eind"];
     }
@@ -38,6 +38,7 @@ if ($result->num_rows > 0) {
 <body>
   <div class="container-fluid">
   <img src="../photos/logo.png" alt="" class=" rounded mx-auto d-block float-left">
+  
   <div class="sum">
   <h1 class ="text-center bg-dark text-white">Project Summary</h1>
   <div class="project_info  col-s4">

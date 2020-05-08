@@ -42,19 +42,19 @@ include "../conn.php";
 			<nav>
 				<ul>
 					<li>
-						<a href="index.php">
+						<a href="#">
 							<span><i class="fa fa-home"></i></span>
 							<span>Home</span>
 						</a>
 					</li>
 					<li>
-						<a href="projects.php">
+						<a href="#">
 							<span><i class="fa fa-product-hunt"></i></span>
 							<span>Projects</span>
 						</a>
 					</li>
 					<li>
-						<a href="taakform.php">
+						<a href="#">
 							<span><i class="fa fa-tasks"></i></span>
 							<span>Taken</span>
 						</a>
@@ -94,7 +94,7 @@ include "../conn.php";
               foreach ($query_run as $row) {
                 ?>
 
-                <form action="register.php" method="POST">
+                <form action="allaround_save.php" method="POST">
                   <input type="hidden" name="edit_id" value="<?php echo $row['persoon_id'] ?>">
                   <div class="form-group">
                   <label> Naam </label>
@@ -112,17 +112,22 @@ include "../conn.php";
                   <label>Email</label>
                   <input type="email" name="edit_email" value="<?php echo $row['persoon_email'] ?>" class="form-control" placeholder="Enter Email">
                   </div>
+									<div class="form-group">
+									<label>Password</label>
+									<input type="password" name="edit_pass" value="<?php echo $row['password'] ?>" id="myInput" class="form-control" placeholder="Enter Password">
+									<input type="checkbox" onclick="myFunction()">Show Password
+									</div>
                   <div class="form-group">
                   <label>Adres</label>
                   <input type="text" name="edit_adres" value="<?php echo $row['persoon_adres'] ?>" class="form-control" placeholder="Adres">
                   <br>
                   <select name="edit_rol" value="<?php echo $row['rol_id'] ?>" class="browser-default custom-select  col-sm-12">
                   <option value="">rol</option>
-					        <option value="1">student</option>
-								  <option value="2">docent</option>
-								  <option value="3">Administratie</option>
-								  <option value="4">Financien</option>
-								  <option value="5">Overall User</option>
+                  <option value="1">student</option>
+                  <option value="2">docent</option>
+									<option value="3">administratie</option>
+									<option value="4">financiele afdeling</option>
+									<option value="5">all around user</option>
                   </select>
                   </div>
                   <div class="form-group">
@@ -141,7 +146,7 @@ include "../conn.php";
                   </select>
                   </div>
 
-                 <a href="listing.php" class="btn btn-danger">CANCEL</a>
+                 <a href="allaround.php" class="btn btn-danger">CANCEL</a>
                  <button type="submit" name="updatebtn" class="btn btn-primary">UPDATE</button>
           </form>
 

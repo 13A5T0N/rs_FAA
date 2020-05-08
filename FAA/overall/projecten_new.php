@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../conn.php";
 ?>
 
@@ -13,7 +14,7 @@ include "../conn.php";
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
@@ -27,6 +28,40 @@ include "../conn.php";
 
 
 		<div class="header">
+			<div class="logo1">
+				<li class="nav-item dropdown no-arrow">
+					<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="mr-2 d-none d-lg-inline text-gray-600 small">
+							<?php echo $_SESSION['username']; ?>
+
+						</span>
+						<img class="img-profile rounded-circle" src="../photos/user.png">
+					</a>
+					<!-- Dropdown - User Information -->
+					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+						<a class="dropdown-item" href="#">
+							<i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+							Profile
+						</a>
+						<a class="dropdown-item" href="#">
+							<i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+							Settings
+						</a>
+						<a class="dropdown-item" href="#">
+							<i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+							Activity Log
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+							<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+							Logout
+						</a>
+					</div>
+				</li>
+
+
+			</div>
+
 			<div class="logo">
 				<i class="fa fa-tachometer"></i>
 				<span>Brand</span>
@@ -41,7 +76,7 @@ include "../conn.php";
 			<nav>
 				<ul>
 					<li>
-						<a href="#">
+						<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
 							<span>Home</span>
 						</a>
@@ -53,7 +88,7 @@ include "../conn.php";
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
 							<span>Taken</span>
 						</a>
@@ -118,8 +153,8 @@ include "../conn.php";
 							echo "<option value=".$row['persoon_id'].">".$row['persoon_voornaam'] ." ". "$row[persoon_naam]</option>";
 						 }
 					 }
-					 
-					  ?>    
+
+					  ?>
 					 </datalist>
                   </div>
 
@@ -134,5 +169,33 @@ include "../conn.php";
         </div>
       </div>
       </div>
+
+			<!-- Logout Modal-->
+			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+							<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+							<form action="logout.php" method="POST">
+
+								<button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+
+							</form>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 	</body>
 </html>
