@@ -11,7 +11,7 @@ margin-left:15%;
 
 
 <?php 
-include "conn.php";
+include "../conn.php";
 $exacte_id = $_POST["exacte"];
 $sql = "SELECT bedrijf_naam, bedrijf_tel, bedrijf_email, bedrijf_adres, exacte_id, taak_id, prijs , kwitantie
 FROM bedrijf, exacte
@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
   <div class="project_info  col-s4">
     <table class="table " >
       <tr>
-         <td>Exacte id:</td>
+         <td>#:</td>
          <td><?php echo $exacteid; ?></td>
       </tr>
       <tr>
@@ -84,9 +84,9 @@ if ($result->num_rows > 0) {
       <thead>
         <th>#</th>
         <th>bedrijf</th>
-        <th>bedrijf adres</th>
-        <th>bedrijf email</th>
-        <th>bedrijf telefoon</th>
+        <th>adres</th>
+        <th>email</th>
+        <th>telefoon</th>
         <th>prijs</th>
         <th>kwitantie</th>
         <th>Begin datum </th>
@@ -96,7 +96,7 @@ if ($result->num_rows > 0) {
       <tbody>
         <?php
         $nr = 1;
-$sql = "select  bedrijf_naam,bedrijf_adres, taak_naam, taak_beschrijving, taak_einde,prijs,kwitantie,bedrijf_tel, bedrijf_email, Begin_datum
+$sql = "select  bedrijf_naam,bedrijf_adres, taak_naam, taak_beschrijving, taak_einde,prijs,kwitantie,bedrijf_tel, bedrijf_email, datum
 from taak, bedrijf, exacte
 where 
 exacte.taak_id = taak.taak_id
@@ -124,7 +124,7 @@ if (mysqli_num_rows($result) > 0) {
         while ($line = mysqli_fetch_assoc($query1)) {?><div class="image"><?php
             echo '  <img src="data:image/jpeg;base64,' . $line['kwitantie'] . '">  </a>'; } ?></div><?php echo "</td>
             
-      <td>".$row["Begin_datum"]."</td>
+      <td>".$row["datum"]."</td>
      
       </tr>
       ";

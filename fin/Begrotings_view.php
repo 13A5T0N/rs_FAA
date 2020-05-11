@@ -1,5 +1,6 @@
 <?php
-include "../conn.php";
+include_once "../conn.php";
+$exacte = $_POST["exacte"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@ include "../conn.php";
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-		<link rel="stylesheet" href="../css/main.css">
+		<link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 
@@ -28,78 +29,66 @@ include "../conn.php";
     <title>FAA</title>
 </head>
 <body>
-<div class="header">
-			<div class="logo">
+   <div class="header">
+   <div class="logo">
 				<i class="fa fa-tachometer"></i>
 				<span>Brand</span>
 			</div>
 			<a href="#" class="nav-trigger"><span></span></a>
-		</div>
-
-        <div class="side-nav">
+   </div> 
+   <div class="side-nav">
 			<div class="logo">
 				<img src="../photos/logo.png">
 				<span>NATIN</span>
 			</div>
 			<nav>
-				<ul>
-          <li>
-						<a href="">
+			<ul>
+					<li>
+						<a href="#">
 							<span><i class="fa fa-home"></i></span>
 							<span>Home</span>
 						</a>
 					</li>
 					<li>
-						<a href="">
+						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span></span>
+							<span>Projects</span>
 						</a>
 					</li>
+          <li>
+						<a href="Begrotingen.php">
+							<span><i class="fa fa-product-hunt"></i></span>
+							<span>Begrotingen</span>
+						</a>
+					</li>
+          <li>
+						<a href="bedrijf.php">
+							<span><i class="fa fa-product-hunt"></i></span>
+							<span>bedrijf</span>
+						</a>
+					</li>
+         
 					<li>
-						<a href="">
+						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
-							<span></span>
+							<span>Taken</span>
 						</a>
 					</li>
 					<li>
-						<a href="alle_uitgaven.php">
+						<a href="projecten_uitgaven.php">
 							<span><i class="fa fa-book"></i></span>
 							<span>Rapporten</span>
 						</a>
 					</li>
-					<li>
-						<a href="">
-							<span><i class="fa fa-users"></i></span>
-							<span></span>
-						</a>
-					</li>
 				</ul>
+				
 			</nav>
-		</div>
-        <div class ="main-content">
-        <div class="title">
-      Financiele afdeling: Uitgaven overzicht. Alle uitgaven
-        </div>
-        <div class ="container-fluid">
+	</div>
+<div class = "main-content">
+    <div class ="container-fluid">
         <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary"> 
-          <button type="button" class="btn btn-primary" onclick="new_all()" >
-                    Alle uitgaven
-                  </button>
-          <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Uitgaven per project 
-                  </button>
-                  <button type="button" class="btn btn-primary" onclick="new_maand()" >
-                    Uitgaven per maand
-                  </button> 
-                  <button type="button" class="btn btn-primary" onclick="new_jaar()" >
-                    Uitgaven per jaar
-                  </button> 
-          </h6>
-        </div>
-        <div class="card-body">
-					<?php
+            <div class="card-body">
+            <?php
 					if (isset($_SESSION['success']) && $_SESSION['success']!='') {
 						echo '<p> '.$_SESSION['success'].' <p>';
 							unset($_SESSION['success']);
@@ -109,33 +98,40 @@ include "../conn.php";
 						echo '<p class="bg-info"> '.$_SESSION['status'].' <p>';
 							unset($_SESSION['status']);
 					}
+
+
+
 					 ?>
 
-
-          <div class="table-responsive">
+                      <div class="table-responsive">
 						<?php
 
-                        $query = "
-                        select project.project_naam, taak.taak_naam, exacte.prijs, exacte.datum
-from project, taak, exacte
-where 
-project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
-                        ";
+						$query = "select bedrijf_naam, bedrijf_tel, bedrijf_email, exacte_id, taak_id, prijs , kwitantie, datum
+                        from bedrijf, exacte
+                        where 
+                        exacte.bedrijf_id = bedrijf.bedrijf_id
+						and
+                        exacte_id = $exacte";
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>
+<div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary">
+		  <form action="begroting_rapport.php" method="post">
+		 
+		  <?php
+		  echo "
+		  <button type='submit' class='btn btn-primary' name ='exacte' value ='".$exacte."'>
+		  rapport 
+		</button>";
+		
+		  ?>
+		  </form>
 
+		               
+          </h6>
+        </div>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-            
-                  <th>project naam</th>
-                  <th>taak</th>
-                  <th>Uitgave</th>
-				  <th>datum</th>
-                 
-                </tr>
-              </thead>
               <tbody>
 								<?php
 								if (mysqli_num_rows($query_run) > 0) {
@@ -144,11 +140,28 @@ project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
 										?>
 
                 <tr>
-                  <td> <?php echo $row['project_naam']; ?> </td>
-                  <td> <?php echo $row['taak_naam']; ?> </td>
-                  <td> <?php echo "SRD ".$row['prijs']; ?> </td>
-                  <td> <?php echo $row['datum']; ?> </td>
-                 
+                    <td>Bedrijf naam</td>
+                    <td><?php echo $row['bedrijf_naam']; ?> </td>
+                </tr>
+                <tr>
+                <td> Bedrijfs nummer</td>
+                <td><?php echo $row['bedrijf_tel']; ?></td>
+                </tr>
+                <tr>
+                <td>Bedrijf email</td>
+                <td><?php echo $row['bedrijf_email']; ?></td>
+                </tr>
+                <tr>
+                <td>Prijs</td>
+                <td><?php echo $row['prijs']; ?></td>
+                </tr>
+                <tr>
+                <td>Kwitantie</td>
+                <td><img src="<?php echo $row['kwitantie'] ?>" alt=""></td>
+                </tr>
+				<td>Start datum</td>
+                <td><?php echo $row['datum'];  
+                ?></td>
                 </tr>
 								<?php
 							}
@@ -162,24 +175,11 @@ project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
             </table>
 
           </div>
+            </div>
         </div>
-        </div>
-        </div>
-        </div>
-       
+    </div>
+</div>
+
 </body>
-<script>
-  function new_all(){
-    location.replace("alle_uitgaven.php")
-}  
-function new_project(){
-    location.replace("projecten_uitgaven.php")
-}
-function new_maand(){
-    location.replace("maandelijke_uitgaven.php")
-}
-function new_jaar(){
-    location.replace("jaarlijkse_uitgave.php")
-}
-</script>
+
 </html>
