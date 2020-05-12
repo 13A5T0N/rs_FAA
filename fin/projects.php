@@ -151,7 +151,9 @@ include "../conn.php";
 						<?php
 
 						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , project_start, project_eind
-                        from project, persoon";
+						from project, persoon
+						where
+            			project.persoon_id = persoon.persoon_id";
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>
@@ -203,7 +205,32 @@ include "../conn.php";
         </div>
         </div>
         </div>
-       
+    <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+          <form action="logout.php" method="POST">
+
+            <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>   
 </body>
 <script>
 function new_project(){

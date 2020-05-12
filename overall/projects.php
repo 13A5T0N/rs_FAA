@@ -136,7 +136,9 @@ include "../conn.php";
 						<?php
 
 						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , project_start, project_eind
-                        from project, persoon";
+						from project, persoon
+						where
+            			project.persoon_id = persoon.persoon_id";
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>

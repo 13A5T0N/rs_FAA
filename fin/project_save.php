@@ -17,7 +17,7 @@ $leider=mysqli_real_escape_string($conn,$leider);
 
 
 
-$query = "INSERT INTO `project`( `project_naam`, `persoon_id`, `prject_budget`, `project_start`, `project_eind`, `project_beschrijving`)
+$query = "INSERT INTO `project`( `project_naam`, `persoon_id`, `project_budget`, `project_start`, `project_eind`, `project_beschrijving`)
  VALUES ('$naam',$leider,'$budget','$start','$eind','$beschrijving')";
 $conn->query($query);
 header('Location: projects.php');

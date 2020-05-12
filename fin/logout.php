@@ -1,8 +1,9 @@
 <?php
+session_start();
 
 if (isset($_POST['logout_btn'])) {
   session_destroy();
-  unset($_SESSION['username']);
+  session_unset(); 
   header("location: ../index.php");
 
 }

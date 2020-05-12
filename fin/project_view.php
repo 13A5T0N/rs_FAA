@@ -1,4 +1,6 @@
 <?php
+session_start();
+include "../security.php";
 include_once "../conn.php";
 $project = $_POST["project"];
 ?>
@@ -29,13 +31,47 @@ $project = $_POST["project"];
     <title>FAA</title>
 </head>
 <body>
-   <div class="header">
-   <div class="logo">
-				<i class="fa fa-tachometer"></i>
-				<span>Brand</span>
-			</div>
-			<a href="#" class="nav-trigger"><span></span></a>
-   </div> 
+<div class="header">
+    <div class="logo1">
+      <li class="nav-item dropdown no-arrow">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+            <?php echo $_SESSION['username']; ?>
+          </span>
+          <img class="img-profile rounded-circle" src="../photos/user.png">
+        </a>
+        <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+            Profile
+          </a>
+          <a class="dropdown-item" href="#">
+            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+            Settings
+          </a>
+          <a class="dropdown-item" href="log.php">
+            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+            Activity Log
+          </a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Logout
+          </a>
+        </div>
+      </li>
+
+
+    </div>
+
+    <div class="logo">
+      <i class="fa fa-tachometer"></i>
+      <span>Brand</span>
+    </div>
+    <a href="#" class="nav-trigger"><span></span></a>
+  </div>
    <div class="side-nav">
 			<div class="logo">
 				<img src="../photos/logo.png">
@@ -97,11 +133,11 @@ $project = $_POST["project"];
 						<?php
 
 						$query = "select project_id, project_naam, persoon_naam,persoon_voornaam , project_budget, project_start, project_eind, project_beschrijving
-                        from project, persoon
-                        where 
-                        project.persoon_id = persoon.persoon_id
-                        and 
-                        project_id = $project ";
+            from project, persoon
+            where
+            project.persoon_id = persoon.persoon_id
+            and
+            project_id = $project ";
 						$query_run = mysqli_query($conn, $query);
 
 						?>
@@ -125,33 +161,32 @@ $project = $_POST["project"];
 								if (mysqli_num_rows($query_run) > 0) {
 									while ($row = mysqli_fetch_assoc($query_run)) {
 
-										?>
-
+                    echo "
                 <tr>
                     <td>Project naam</td>
-                    <td><?php echo $row['project_naam']; ?> </td>
+                    <td>".$row['project_naam']."</td>
                 </tr>
                 <tr>
                 <td> Project omschrijving</td>
-                <td><?php echo $row['project_beschrijving']; ?></td>
+                <td>".$row['project_beschrijving']."</td>
                 </tr>
                 <tr>
                     <td>Start Datum</td>
-                    <td><?php echo $row['project_start']; ?></td>
+                    <td>".$row['project_start']."</td>
                 </tr>
                 <tr>
                 <td>Eind Datum</td>
-                <td><?php echo $row['project_eind']; ?></td>
+                <td>".$row['project_eind']."</td>
                 </tr>
                 <tr>
                 <td>Start Budget</td>
-                <td><?php echo $row['project_budget']; ?></td>
+                <td>". $row['project_budget']."</td>
                 </tr>
                 <tr>
                 <td>Project Leider</td>
-                <td><?php echo $row['persoon_naam']." ".$row['persoon_voornaam']; ?></td>
-                </tr>
-								<?php
+                <td>".$row['persoon_naam']." ".$row['persoon_voornaam']."</td>
+                </tr> 
+                ";
 							}
 						}else {
 							echo "No records found";
@@ -167,7 +202,32 @@ $project = $_POST["project"];
         </div>
     </div>
 </div>
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
+          <form action="logout.php" method="POST">
+
+            <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
