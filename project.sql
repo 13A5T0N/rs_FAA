@@ -54,7 +54,7 @@ create table projecten.project(
 project_id int auto_increment,
 project_naam varchar(40),
 persoon_id int,
-prject_budget double,
+project_budget double,
 project_start date,
 project_eind date,
 project_beschrijving text,

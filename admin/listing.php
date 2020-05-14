@@ -217,7 +217,7 @@ include "../security.php";
 
 						$query = "SELECT persoon_id, persoon_email, persoon_naam, persoon_voornaam, persoon_tel, persoon_adres,richting.naam as richting ,rol.naam as rol
 						FROM persoon, rol, richting where persoon.richting_id = richting.richting_id and persoon.rol_id  = rol.rol_id
-						and rol.naam in('docent','student')";
+						and rol.naam in('docent','student','admin')";
 						$query_run = mysqli_query($conn, $query);
 
 						 ?>
