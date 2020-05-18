@@ -80,7 +80,7 @@ include "../conn.php";
 			<nav>
 			<ul>
 					<li>
-						<a href="#">
+						<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
 							<span>Home</span>
 						</a>
@@ -122,8 +122,8 @@ include "../conn.php";
 	</div>
         <div class ="main-content">
         <div class="title">
-			Alle uitgaven
-		</div>
+        Uitgaven per jaar.
+        </div>
         <div class ="container-fluid">
         <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -138,8 +138,9 @@ include "../conn.php";
                     Uitgaven per maand
                   </button> 
                   <button type="button" class="btn btn-primary" onclick="new_jaar()" >
-                    Uitgaven per jaar
+                  Jaarlijkse uitgaven per richting
                   </button> 
+                 
           </h6>
         </div>
         <div class="card-body">
@@ -160,10 +161,10 @@ include "../conn.php";
 						<?php
 
                         $query = "
-                        select project.project_naam, taak.taak_naam, exacte.prijs, exacte.datum, project.persoon_id, richting.naam
-                        from project, taak, exacte,richting,persoon
-                        where 
-                        project.project_id=taak.project_id and taak.taak_id=exacte.taak_id and persoon.persoon_id=project.persoon_id and persoon.richting_id=richting.richting_id
+                        select  sum(exacte.prijs),  DATE_FORMAT(exacte.datum, '%Y') as datum 
+                        from exacte
+                       
+                              GROUP BY EXTRACT( YEAR FROM exacte.datum )                           
                         ";
 						$query_run = mysqli_query($conn, $query);
 
@@ -173,11 +174,9 @@ include "../conn.php";
               <thead>
                 <tr>
             
-                  <th>project naam</th>
-                  <th>taak</th>
+                  <th>Jaar</th>
                   <th>Uitgave</th>
-          <th>datum</th>
-          <th>richting</th>
+				  
                  
                 </tr>
               </thead>
@@ -189,11 +188,10 @@ include "../conn.php";
 										?>
 
                 <tr>
-                  <td> <?php echo $row['project_naam']; ?> </td>
-                  <td> <?php echo $row['taak_naam']; ?> </td>
-                  <td> <?php echo "SRD ".$row['prijs']; ?> </td>
                   <td> <?php echo $row['datum']; ?> </td>
-                  <td> <?php echo $row['naam']; ?> </td>
+                  <td> <?php echo "SRD ".$row ['sum(exacte.prijs)']; ?> </td>
+
+                 
                 </tr>
 								<?php
 							}
@@ -211,8 +209,8 @@ include "../conn.php";
         </div>
         </div>
         </div>
-<!-- Logout Modal-->
-<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -236,7 +234,7 @@ include "../conn.php";
         </div>
       </div>
     </div>
-  </div>
+  </div>     
 </body>
 <script>
   function new_all(){
@@ -249,7 +247,7 @@ function new_maand(){
     location.replace("maandelijke_uitgaven.php")
 }
 function new_jaar(){
-    location.replace("jaarlijkse_uitgave.php")
+    location.replace("richting_jaarlijks.php")
 }
 </script>
 </html>
