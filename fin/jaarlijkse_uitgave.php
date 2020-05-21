@@ -155,7 +155,11 @@ include "../conn.php";
 							unset($_SESSION['status']);
 					}
 					 ?>
-
+ <!-- Table -->
+ <div >  
+                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>  
+                </div>  
+                <br><br> 
 
           <div class="table-responsive">
 						<?php
@@ -180,7 +184,7 @@ include "../conn.php";
                  
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="myTable">
 								<?php
 								if (mysqli_num_rows($query_run) > 0) {
 									while ($row = mysqli_fetch_assoc($query_run)) {
@@ -250,4 +254,31 @@ function new_jaar(){
     location.replace("jaarlijkse_uitgave.php")
 }
 </script>
+
+<script>  
+      $(document).ready(function(){  
+           $('#search').keyup(function(){  
+                search_table($(this).val());  
+           });  
+           function search_table(value){  
+                $('#myTable tr').each(function(){  
+                     var found = 'false';  
+                     $(this).each(function(){  
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
+                          {  
+                               found = 'true';  
+                          }  
+                     });  
+                     if(found == 'true')  
+                     {  
+                          $(this).show();  
+                     }  
+                     else  
+                     {  
+                          $(this).hide();  
+                     }  
+                });  
+           }  
+      });  
+ </script>  
 </html>
