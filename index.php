@@ -21,17 +21,22 @@
         ?>
     </div>
     <form action="login.php" method="post">
-        <div class="input-group">
-            <label>Username</label>
-            <input type="text" name="username" required>
-        </div>
+      <div class="input-group">
+        <label>Username</label>
+        <input type="text" name="username" value="<?php if(isset($_COOKIE["member_login"])) { echo $_COOKIE["member_login"]; } ?>" class="form-control" required>
+      </div>
 
-        <div class="input-group">
-            <label>Password</label>
-            <input type="password" name="password" required>
-        </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" value="<?php if(isset($_COOKIE["member_password"])) { echo $_COOKIE["member_password"]; } ?>" class="form-control" required>
+      </div>
 
-        <div class="input-group">
+      <div class="form-group">
+        <input type="checkbox" name="remember" <?php if(isset($_COOKIE["member_login"])) { ?> checked <?php } ?> />
+        <label for="remember-me">Remember me</label>
+      </div>
+
+      <div class="input-group">
             <button type="submit" class="btn" name="login_btn">Login</button>
         </div>
 

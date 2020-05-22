@@ -10,36 +10,37 @@ $query = "SELECT * FROM persoon WHERE persoon_naam='$username' AND password='$pa
 $results = mysqli_query($conn, $query);
 $usertypes = mysqli_fetch_array($results);
 
+
 //5=allaround 3=admin 4=financiele
 
 if ($usertypes['rol_id'] == "5") {
   $id = $usertypes['persoon_id'];
   $_SESSION['id'] = $id;
 
-  $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`) 
+  $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`)
   VALUES ($id,'logged in','$date')";
   $conn->query($insertquery);
 
   $_SESSION['username'] = $username;
- 
+
   header('location: overall/');
 }
 elseif ($usertypes['rol_id'] == "3") {
   $id = $usertypes['persoon_id'];
   $_SESSION['id'] = $id;
 
-  $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`) 
+  $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`)
   VALUES ($id,'logged in','$date')";
   $conn->query($insertquery);
 
   $_SESSION['username'] = $username;
   header('location: admin/');
-} 
+}
 elseif ($usertypes['rol_id'] == "4") {
     $id = $usertypes['persoon_id'];
     $_SESSION['id'] = $id;
-    
-    $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`) 
+
+    $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`)
     VALUES ($id,'logged in','$date')";
     $conn->query($insertquery);
 
@@ -50,3 +51,21 @@ else{
   $_SESSION['status'] = 'Username or Password is Invalid!!';
   header('location: index.php');
   }
+
+
+    if(!empty($_POST["remember"]))
+{
+ setcookie ("member_login",$username,time()+ (3600));
+ setcookie ("member_password",$password,time()+ (3600));
+}
+else
+{
+ if(isset($_COOKIE["member_login"]))
+ {
+  setcookie ("member_login","");
+ }
+ if(isset($_COOKIE["member_password"]))
+ {
+  setcookie ("member_password","");
+ }
+}
