@@ -263,6 +263,7 @@ include "../security.php";
 												<th>taak</th>
 												<th>beschrijving</th>
 												<th>Eind Datum</th>
+												<th>Edit</th>
 											</tr>
 										</thead>
 										<tbody id="myTable">
@@ -279,6 +280,12 @@ include "../security.php";
 														<td> <?php echo $row['taak_naam']; ?> </td>
 														<td> <?php echo $row['taak_beschrijving']; ?> </td>
 														<td> <?php echo $row['taak_einde']; ?> </td>
+														<td>
+															<form action="taak_edit.php" method="post">
+																<input type="hidden" name="edit_id" value="<?php echo $row['taak_id']; ?>">
+																<button type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+															</form>
+														</td>
 													</tr>
 											<?php
 												}
