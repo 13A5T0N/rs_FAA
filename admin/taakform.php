@@ -167,37 +167,66 @@ include "../security.php";
 
 
 
-											<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+											<table id="myTable" class=" table order-list">
 												<thead>
 													<tr>
-														<th>#</th>
-														<th>persoon</th>
-														<th>Activity</th>
-														<th>datum</th>
+														<td>verantwoordelijke</td>
+														<td>Taak</td>
+														<td>beschrijving</td>
+														<td>Eind datum</td>
+
+
 													</tr>
 												</thead>
 												<tbody id="myTable">
-													<?php
-													if (mysqli_num_rows($query_run) > 0) {
-														while ($row = mysqli_fetch_assoc($query_run)) {
+													<tr>
+														<td class="col-sm-4">
+															<input required list="persoon" type="text" name="persoon" class="form-control" />
+															<datalist id="persoon">
+																<?php
+																include('conn.php');
+																$selectpersoon = "select * from projecten.persoon ";
+																$result = mysqli_query($conn, $selectpersoon);
+																if (mysqli_num_rows($result) > 0) {
+																	while ($row = mysqli_fetch_assoc($result)) {
 
-													?>
+																		echo "<option value=" . $row['persoon_id'] . ">" . $row['persoon_voornaam'] . " " . "$row[persoon_naam]</option>";
+																	}
+																}
 
-															<tr>
-																<td> <?php echo $row['log_id']; ?> </td>
-																<td> <?php echo $row['persoon_naam'] . " " . $row['persoon_voornaam']; ?></td>
-																<td> <?php echo $row['status']; ?> </td>
-																<td> <?php echo $row['datum']; ?> </td>
-																<td> <?php echo $row['naam']; ?> </td>
-															</tr>
-													<?php
-														}
-													} else {
-														echo "No records found";
-													}
+																?>
+															</datalist>
+														</td>
+														<td class="col-sm-4">
+															<input required type="text" name="taak" class="form-control" />
 
-													?>
+														</td>
+														<td class="col-sm-4">
+															<input type="text" name="beschrijving" class="form-control" />
+														</td>
+														<td class="col-sm-4">
+															<input required type="date" name="eind" class="form-control" />
+														</td>
+
+
+														<td class="col-sm-2"><a class="deleteRow"></a>
+
+														</td>
+													</tr>
 												</tbody>
+												<tfoot>
+													<tr>
+
+														<td colspan="0" style="text-align: left;">
+															<input type="button" class="btn btn-success" id="addrow" value="+" />
+														</td>
+
+
+
+													</tr>
+													<tr>
+													</tr>
+												</tfoot>
 											</table>
 										</div>
 
@@ -213,7 +242,10 @@ include "../security.php";
 								</form>
 							</div>
 							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-
+								<div class="mb-2">
+									<input type="text" name="search" id="search" class="form-control" placeholder="Search..." />
+								</div>
+								<br>
 								<div class="table-responsive">
 									<?php
 
@@ -225,15 +257,15 @@ include "../security.php";
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
-												<th>taak</th>
+												<th>#</th>
 												<th>project</th>
-												<th>persoon naam</th>
-												<th>taak naam</th>
+												<th>persoon</th>
+												<th>taak</th>
 												<th>beschrijving</th>
-												<th>eind datum</th>
+												<th>Eind Datum</th>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody id="myTable">
 											<?php
 											if (mysqli_num_rows($query_run) > 0) {
 												while ($row = mysqli_fetch_assoc($query_run)) {
@@ -255,7 +287,6 @@ include "../security.php";
 											}
 
 											?>
-
 										</tbody>
 									</table>
 
@@ -328,5 +359,6 @@ include "../security.php";
 
 	});
 </script>
-<script src="search.js"></script>
+<script src="../search.js"></script>
+
 </html>

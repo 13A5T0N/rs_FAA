@@ -187,6 +187,6 @@ order by log_id desc
 
 
 </body>
-<script src="search.js"></script>
+<script src="../search.js"></script>
 
 </html>

@@ -310,5 +310,5 @@ include "../security.php";
 			</div>
 		</div>
 </body>
-<script src="search.js"></script>
+<script src="../search.js"></script>
 </html>
