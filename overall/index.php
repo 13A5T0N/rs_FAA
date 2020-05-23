@@ -1,9 +1,8 @@
-<?php 
+<?php
 session_start();
 include "../security.php";
 include "../conn.php";
-$id = $_SESSION['id'];
-include "../task.php";
+
 ?>
 
 
@@ -52,19 +51,6 @@ include "../task.php";
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="log.php">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            Activity Log
-          </a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
             <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             Logout
@@ -133,7 +119,7 @@ include "../task.php";
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Niet gestart</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $taak -> unopend($id,$conn);?></div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
                 </div>
                 <div class="col-auto">
                   <i class="fa fa-times fa-2x text-gray-300"></i>
@@ -150,7 +136,7 @@ include "../task.php";
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">In progress</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $taak -> progress($id,$conn);?></div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
                 </div>
                 <div class="col-auto">
                   <i class="fa fa-spinner fa-2x text-gray-300"></i>
@@ -169,7 +155,7 @@ include "../task.php";
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Finished</div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php $taak -> progress($id,$conn);?></div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">16</div>
                     </div>
                   </div>
                 </div>
@@ -181,14 +167,31 @@ include "../task.php";
           </div>
         </div>
 
-       
+        <!-- Pending Requests Card Example -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Overdue</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fa fa-exclamation-circle fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Content Row -->
 
       <div class="table-responsive">
         <?php
 
-          $query = "SELECT project_id, project_naam, project_eind FROM project 
-          order by project_id desc 
+          $query = "SELECT project_id, project_naam, project_eind FROM project
+          order by project_id desc
           limit 5 ";
           $query_run = mysqli_query($conn, $query);
 
