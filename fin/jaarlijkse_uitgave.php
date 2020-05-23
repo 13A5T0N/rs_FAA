@@ -41,25 +41,12 @@ include "../conn.php";
           <img class="img-profile rounded-circle" src="../photos/user.png">
         </a>
         <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="log.php">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            Activity Log
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
-          </a>
-        </div>
+				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+					<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						Logout
+					</a>
+				</div>
       </li>
 
 
@@ -91,19 +78,19 @@ include "../conn.php";
 							<span>Projects</span>
 						</a>
 					</li>
-          <li>
+					<li>
 						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
+							<span><i class="fa fa-usd"></i></span>
 							<span>Begrotingen</span>
 						</a>
 					</li>
           <li>
 						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
+							<span><i class="fa fa-building-o"></i></span>
+							<span>Bedrijf</span>
 						</a>
 					</li>
-         
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -117,7 +104,7 @@ include "../conn.php";
 						</a>
 					</li>
 				</ul>
-				
+
 			</nav>
 	</div>
         <div class ="main-content">
@@ -127,20 +114,20 @@ include "../conn.php";
         <div class ="container-fluid">
         <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary"> 
+          <h6 class="m-0 font-weight-bold text-primary">
           <button type="button" class="btn btn-primary" onclick="new_all()" >
                     Alle uitgaven
                   </button>
           <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Uitgaven per project 
+                    Uitgaven per project
                   </button>
                   <button type="button" class="btn btn-primary" onclick="new_maand()" >
                     Uitgaven per maand
-                  </button> 
+                  </button>
                   <button type="button" class="btn btn-primary" onclick="new_jaar()" >
                     Uitgaven per jaar
-                  </button> 
-                 
+                  </button>
+
           </h6>
         </div>
         <div class="card-body">
@@ -156,19 +143,19 @@ include "../conn.php";
 					}
 					 ?>
  <!-- Table -->
- <div >  
-                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>  
-                </div>  
-                <br><br> 
+ <div >
+                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>
+                </div>
+                <br><br>
 
           <div class="table-responsive">
 						<?php
 
                         $query = "
-                        select  sum(exacte.prijs),  DATE_FORMAT(exacte.datum, '%Y') as datum 
+                        select  sum(exacte.prijs),  DATE_FORMAT(exacte.datum, '%Y') as datum
                         from exacte
-                       
-                              GROUP BY EXTRACT( YEAR FROM exacte.datum )                           
+
+                              GROUP BY EXTRACT( YEAR FROM exacte.datum )
                         ";
 						$query_run = mysqli_query($conn, $query);
 
@@ -177,11 +164,11 @@ include "../conn.php";
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-            
+
                   <th>Jaar</th>
                   <th>Uitgave</th>
-				  
-                 
+
+
                 </tr>
               </thead>
               <tbody id="myTable">
@@ -195,7 +182,7 @@ include "../conn.php";
                   <td> <?php echo $row['datum']; ?> </td>
                   <td> <?php echo "SRD ".$row ['sum(exacte.prijs)']; ?> </td>
 
-                 
+
                 </tr>
 								<?php
 							}
@@ -238,12 +225,12 @@ include "../conn.php";
         </div>
       </div>
     </div>
-  </div>     
+  </div>
 </body>
 <script>
   function new_all(){
     location.replace("alle_uitgaven.php")
-}  
+}
 function new_project(){
     location.replace("projecten_uitgaven.php")
 }
@@ -255,30 +242,30 @@ function new_jaar(){
 }
 </script>
 
-<script>  
-      $(document).ready(function(){  
-           $('#search').keyup(function(){  
-                search_table($(this).val());  
-           });  
-           function search_table(value){  
-                $('#myTable tr').each(function(){  
-                     var found = 'false';  
-                     $(this).each(function(){  
-                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
-                          {  
-                               found = 'true';  
-                          }  
-                     });  
-                     if(found == 'true')  
-                     {  
-                          $(this).show();  
-                     }  
-                     else  
-                     {  
-                          $(this).hide();  
-                     }  
-                });  
-           }  
-      });  
- </script>  
+<script>
+      $(document).ready(function(){
+           $('#search').keyup(function(){
+                search_table($(this).val());
+           });
+           function search_table(value){
+                $('#myTable tr').each(function(){
+                     var found = 'false';
+                     $(this).each(function(){
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                          {
+                               found = 'true';
+                          }
+                     });
+                     if(found == 'true')
+                     {
+                          $(this).show();
+                     }
+                     else
+                     {
+                          $(this).hide();
+                     }
+                });
+           }
+      });
+ </script>
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 include "../security.php";
 include "../conn.php"; ?>
@@ -46,19 +46,6 @@ include "../conn.php"; ?>
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="log.php">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            Activity Log
-          </a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
             <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             Logout
@@ -95,18 +82,18 @@ include "../conn.php"; ?>
 						</a>
 					</li>
           <li>
-						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Begrotingen</span>
-						</a>
-					</li>
+            <a href="Begrotingen.php">
+              <span><i class="fa fa-usd"></i></span>
+              <span>Begrotingen</span>
+            </a>
+          </li>
           <li>
-						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
-						</a>
-					</li>
-         
+            <a href="bedrijf.php">
+              <span><i class="fa fa-building-o"></i></span>
+              <span>Bedrijf</span>
+            </a>
+          </li>
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -120,7 +107,7 @@ include "../conn.php"; ?>
 						</a>
 					</li>
 				</ul>
-				
+
 			</nav>
 	</div>
 		<div class="main-content">
@@ -152,9 +139,9 @@ include "../conn.php"; ?>
                   <input type="text" name="adres" value="" class="form-control" placeholder="Bedrijf adres">
                   </div>
                   <div class="form-group">
-                  
-                  
-				  
+
+
+
                  <a href="bedrijf.php" class="btn btn-danger">CANCEL</a>
                  <button type="submit" name="updatebtn" class="btn btn-primary">SAVE</button>
           </form>
@@ -191,6 +178,6 @@ include "../conn.php"; ?>
         </div>
       </div>
     </div>
-  </div>   
+  </div>
 </body>
 </html>

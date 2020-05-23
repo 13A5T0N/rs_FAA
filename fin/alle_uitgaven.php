@@ -41,25 +41,12 @@ include "../conn.php";
           <img class="img-profile rounded-circle" src="../photos/user.png">
         </a>
         <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="log.php">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            Activity Log
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
-          </a>
-        </div>
+				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+					<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						Logout
+					</a>
+				</div>
       </li>
 
 
@@ -93,17 +80,17 @@ include "../conn.php";
 					</li>
           <li>
 						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
+							<span><i class="fa fa-usd"></i></span>
 							<span>Begrotingen</span>
 						</a>
 					</li>
           <li>
 						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
+							<span><i class="fa fa-building-o"></i></span>
+							<span>Bedrijf</span>
 						</a>
 					</li>
-         
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -117,7 +104,7 @@ include "../conn.php";
 						</a>
 					</li>
 				</ul>
-				
+
 			</nav>
 	</div>
         <div class ="main-content">
@@ -127,19 +114,19 @@ include "../conn.php";
         <div class ="container-fluid">
         <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary"> 
+          <h6 class="m-0 font-weight-bold text-primary">
           <button type="button" class="btn btn-primary" onclick="new_all()" >
                     Alle uitgaven
                   </button>
           <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Uitgaven per project 
+                    Uitgaven per project
                   </button>
                   <button type="button" class="btn btn-primary" onclick="new_maand()" >
                     Uitgaven per maand
-                  </button> 
+                  </button>
                   <button type="button" class="btn btn-primary" onclick="new_jaar()" >
                     Uitgaven per jaar
-                  </button> 
+                  </button>
           </h6>
         </div>
         <div class="card-body">
@@ -162,7 +149,7 @@ include "../conn.php";
                         $query = "
                         select project.project_naam, taak.taak_naam, exacte.prijs, exacte.datum
 from project, taak, exacte
-where 
+where
 project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
                         ";
 						$query_run = mysqli_query($conn, $query);
@@ -170,20 +157,20 @@ project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
 						 ?>
 
               <!-- Table -->
-      <div >  
-                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>  
-                </div>  
-                <br><br> 
+      <div >
+                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>
+                </div>
+                <br><br>
 
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-            
+
                   <th>project naam</th>
                   <th>taak</th>
                   <th>Uitgave</th>
 				  <th>datum</th>
-                 
+
                 </tr>
               </thead>
               <tbody id="myTable">
@@ -198,7 +185,7 @@ project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
                   <td> <?php echo $row['taak_naam']; ?> </td>
                   <td> <?php echo "SRD ".$row['prijs']; ?> </td>
                   <td> <?php echo $row['datum']; ?> </td>
-                 
+
                 </tr>
 								<?php
 							}
@@ -246,7 +233,7 @@ project.project_id=taak.project_id and taak.taak_id=exacte.taak_id
 <script>
   function new_all(){
     location.replace("alle_uitgaven.php")
-}  
+}
 function new_project(){
     location.replace("projecten_uitgaven.php")
 }
@@ -258,30 +245,30 @@ function new_jaar(){
 }
 </script>
 
-<script>  
-      $(document).ready(function(){  
-           $('#search').keyup(function(){  
-                search_table($(this).val());  
-           });  
-           function search_table(value){  
-                $('#myTable tr').each(function(){  
-                     var found = 'false';  
-                     $(this).each(function(){  
-                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
-                          {  
-                               found = 'true';  
-                          }  
-                     });  
-                     if(found == 'true')  
-                     {  
-                          $(this).show();  
-                     }  
-                     else  
-                     {  
-                          $(this).hide();  
-                     }  
-                });  
-           }  
-      });  
- </script>  
+<script>
+      $(document).ready(function(){
+           $('#search').keyup(function(){
+                search_table($(this).val());
+           });
+           function search_table(value){
+                $('#myTable tr').each(function(){
+                     var found = 'false';
+                     $(this).each(function(){
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                          {
+                               found = 'true';
+                          }
+                     });
+                     if(found == 'true')
+                     {
+                          $(this).show();
+                     }
+                     else
+                     {
+                          $(this).hide();
+                     }
+                });
+           }
+      });
+ </script>
 </html>

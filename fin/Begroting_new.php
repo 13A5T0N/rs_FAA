@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<?php 
+<?php
 session_start();
 include "../security.php";
 include "../conn.php"; ?>
@@ -49,19 +49,19 @@ include "../conn.php"; ?>
 							<span>Projects</span>
 						</a>
 					</li>
-          <li>
+					<li>
 						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
+							<span><i class="fa fa-usd"></i></span>
 							<span>Begrotingen</span>
 						</a>
 					</li>
-					<li>
+          <li>
 						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
+							<span><i class="fa fa-building-o"></i></span>
+							<span>Bedrijf</span>
 						</a>
 					</li>
-         
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -80,9 +80,9 @@ include "../conn.php"; ?>
 							<span>Users</span>
 						</a>
 					</li>
-         
+
 				</ul>
-				
+
 			</nav>
 		</div>
 		<div class="main-content">
@@ -98,7 +98,7 @@ include "../conn.php"; ?>
           <form action="Begroting_save.php" method="POST" enctype="multipart/form-data">
                   <input type="hidden" name="edit_id" value="">
 				  <div class="form-group">
-				  
+
 				  <label for=""> naam
                  <input required list="Bedrijf" type="text" class="form-control" name="Bedrijf" placeholder="Bedrijf">
 					 <datalist id="Bedrijf">
@@ -107,13 +107,13 @@ include "../conn.php"; ?>
 					$result = mysqli_query($conn,$selectbedrijfid);
 					if (mysqli_num_rows($result) >0){
 						while($row =mysqli_fetch_assoc($result)){
-						  
+
 						   echo "<option value=".$row['bedrijf_id'].">".$row['bedrijf_naam'] ."</option>";
-						} 
+						}
 					}
 					$message = '';
-					
-					 ?>    
+
+					 ?>
 					</datalist>
                   </div>
 
@@ -130,32 +130,32 @@ include "../conn.php"; ?>
                   <label>Kwitantie</label><br>
 				  <input type="file" name="kwitantie" value="" class="" placeholder="Kwitantie" >
                   </div>
-				  
+
                   <div class="form-group">
                  <input required list="Taak" type="text" class="form-control" name="Taak" placeholder="Taak">
 					 <datalist id="Taak">
 					 <?php
-					
+
 					$selecttaakid="select * from projecten.taak " ;
 					$result = mysqli_query($conn,$selecttaakid);
 					if (mysqli_num_rows($result) >0){
 						while($row =mysqli_fetch_assoc($result)){
-						  
+
 						   echo "<option value=".$row['taak_id'].">".$row['taak_naam'] ." ". "$row[taak_beschrijving]</option>";
-						} 
+						}
 					}
 
 
 
-	
-					 ?>    
+
+					 ?>
 					</datalist>
                   </div>
-				  
+
                  <a href="Begrotingen.php" class="btn btn-danger">CANCEL</a>
                  <button type="submit" name="updatebtn" class="btn btn-primary">SAVE</button>
           </form>
- 
+
 
         </div>
           </div>
@@ -187,6 +187,6 @@ include "../conn.php"; ?>
         </div>
       </div>
     </div>
-  </div> 
+  </div>
 </body>
 </html>

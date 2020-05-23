@@ -42,25 +42,12 @@ $project = $_POST["project"];
           <img class="img-profile rounded-circle" src="../photos/user.png">
         </a>
         <!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="log.php">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            Activity Log
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
-          </a>
-        </div>
+				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+					<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						Logout
+					</a>
+				</div>
       </li>
 
 
@@ -144,15 +131,15 @@ $project = $_POST["project"];
 		<div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">
 		<form action="project_rapport.php" method="post">
-		 
+
 		  <?php
 		  echo "
 		  <button type='submit' class='btn btn-primary' name ='project' value ='".$project."'>
-		  rapport 
+		  rapport
 		</button>";
 		  ?>
 		  </form>
-                  
+
           </h6>
         </div>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -185,7 +172,7 @@ $project = $_POST["project"];
                 <tr>
                 <td>Project Leider</td>
                 <td>".$row['persoon_naam']." ".$row['persoon_voornaam']."</td>
-                </tr> 
+                </tr>
                 ";
 							}
 						}else {

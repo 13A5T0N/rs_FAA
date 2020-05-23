@@ -38,7 +38,7 @@ $project = $_POST["project"];
 				<span>Brand</span>
 			</div>
 			<a href="#" class="nav-trigger"><span></span></a>
-   </div> 
+   </div>
    <div class="side-nav">
 			<div class="logo">
 				<img src="photos/logo.png">
@@ -58,19 +58,19 @@ $project = $_POST["project"];
 							<span>Projects</span>
 						</a>
 					</li>
-          <li>
+					<li>
 						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
+							<span><i class="fa fa-usd"></i></span>
 							<span>Begrotingen</span>
 						</a>
 					</li>
-					<li>
+          <li>
 						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
+							<span><i class="fa fa-building-o"></i></span>
+							<span>Bedrijf</span>
 						</a>
 					</li>
-         
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -89,9 +89,9 @@ $project = $_POST["project"];
 							<span>Users</span>
 						</a>
 					</li>
-         
+
 				</ul>
-				
+
 			</nav>
 		</div>
 <div class = "main-content">
@@ -117,7 +117,7 @@ $project = $_POST["project"];
 						<?php
 
 						$query = "SELECT * FROM bedrijf
-                        WHERE 
+                        WHERE
                         bedrijf_id ";
 						$query_run = mysqli_query($conn, $query);
 
@@ -132,7 +132,7 @@ $project = $_POST["project"];
 										?>
 
 					<tr>
-                    
+
                 <tr>
                     <td>Bedrijf naam</td>
                     <td><?php echo $row['bedrijf_naam']; ?> </td>
@@ -149,7 +149,7 @@ $project = $_POST["project"];
                 <td>Bedrijf adres</td>
                 <td><?php echo $row['bedrijf_adres']; ?></td>
                 </tr>
-               
+
 								<?php
 							}
 						}else {

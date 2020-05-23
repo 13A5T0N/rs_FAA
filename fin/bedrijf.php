@@ -42,19 +42,6 @@ include "../conn.php";
         </a>
         <!-- Dropdown - User Information -->
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-            Profile
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-            Settings
-          </a>
-          <a class="dropdown-item" href="log.php">
-            <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-            Activity Log
-          </a>
-          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
             <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
             Logout
@@ -91,19 +78,19 @@ include "../conn.php";
 							<span>Projects</span>
 						</a>
 					</li>
-          <li>
+					<li>
 						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
+							<span><i class="fa fa-usd"></i></span>
 							<span>Begrotingen</span>
 						</a>
 					</li>
           <li>
 						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
+							<span><i class="fa fa-building-o"></i></span>
+							<span>Bedrijf</span>
 						</a>
 					</li>
-         
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -117,7 +104,7 @@ include "../conn.php";
 						</a>
 					</li>
 				</ul>
-				
+
 			</nav>
 	</div>
         <div class ="main-content">
@@ -129,7 +116,7 @@ include "../conn.php";
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Bedrijven
                   <button type="button" class="btn btn-primary" onclick="new_Bedrijf()" >
-                    new bedrijf 
+                    new bedrijf
                   </button>
           </h6>
         </div>
@@ -151,9 +138,9 @@ include "../conn.php";
 						<?php
 
 						$query = "SELECT * FROM bedrijf";
-                    
+
 						$query_run = mysqli_query($conn, $query);
-						
+
 
 						 ?>
 
@@ -165,11 +152,11 @@ include "../conn.php";
                   <th>bedrijf nummer</th>
                   <th>bedrijf email</th>
 				  <th>bedrijf adres</th>
-				  
+
                 </tr>
               </thead>
               <tbody>
-								<?php 
+								<?php
 								if (mysqli_num_rows($query_run) > 0) {
 									while ($row = mysqli_fetch_assoc($query_run)) {
 
@@ -185,7 +172,7 @@ include "../conn.php";
                   <td>
                       <form action="bedrijf_view.php" method="post">
                           <input type="hidden" name="bedrijf" value="<?php echo $row['bedrijf_id']; ?>">
-                          
+
                   </td>
                 </tr>
 								<?php

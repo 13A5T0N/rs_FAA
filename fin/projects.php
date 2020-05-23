@@ -37,24 +37,11 @@ include "../conn.php";
 							<?php echo $_SESSION['username']; ?>
 
 						</span>
-            
+
 						<img class="img-profile rounded-circle" src="../photos/user.png">
 					</a>
 					<!-- Dropdown - User Information -->
 					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-						<a class="dropdown-item" href="#">
-							<i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-							Profile
-						</a>
-						<a class="dropdown-item" href="#">
-							<i class="fa fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-							Settings
-						</a>
-						<a class="dropdown-item" href="#">
-							<i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-							Activity Log
-						</a>
-						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 							<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
 							Logout
@@ -91,19 +78,19 @@ include "../conn.php";
 							<span>Projects</span>
 						</a>
 					</li>
-          <li>
+					<li>
 						<a href="Begrotingen.php">
-							<span><i class="fa fa-product-hunt"></i></span>
+							<span><i class="fa fa-usd"></i></span>
 							<span>Begrotingen</span>
 						</a>
 					</li>
           <li>
 						<a href="bedrijf.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>bedrijf</span>
+							<span><i class="fa fa-building-o"></i></span>
+							<span>Bedrijf</span>
 						</a>
 					</li>
-         
+
 					<li>
 						<a href="taakform.php">
 							<span><i class="fa fa-tasks"></i></span>
@@ -117,7 +104,7 @@ include "../conn.php";
 						</a>
 					</li>
 				</ul>
-				
+
 			</nav>
 	</div>
         <div class ="main-content">
@@ -129,7 +116,7 @@ include "../conn.php";
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Projecten
                   <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Add project 
+                    Add project
                   </button>
           </h6>
         </div>
@@ -146,10 +133,10 @@ include "../conn.php";
 					}
 					 ?>
 <!-- Table -->
-<div >  
-                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>  
-                </div>  
-                <br><br> 
+<div >
+                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>
+                </div>
+                <br><br>
 
           <div class="table-responsive">
 						<?php
@@ -234,7 +221,7 @@ include "../conn.php";
         </div>
       </div>
     </div>
-  </div>   
+  </div>
 </body>
 <script>
 function new_project(){
@@ -244,30 +231,30 @@ function new_project(){
 
 </script>
 
-<script>  
-      $(document).ready(function(){  
-           $('#search').keyup(function(){  
-                search_table($(this).val());  
-           });  
-           function search_table(value){  
-                $('#myTable tr').each(function(){  
-                     var found = 'false';  
-                     $(this).each(function(){  
-                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)  
-                          {  
-                               found = 'true';  
-                          }  
-                     });  
-                     if(found == 'true')  
-                     {  
-                          $(this).show();  
-                     }  
-                     else  
-                     {  
-                          $(this).hide();  
-                     }  
-                });  
-           }  
-      });  
- </script>  
+<script>
+      $(document).ready(function(){
+           $('#search').keyup(function(){
+                search_table($(this).val());
+           });
+           function search_table(value){
+                $('#myTable tr').each(function(){
+                     var found = 'false';
+                     $(this).each(function(){
+                          if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                          {
+                               found = 'true';
+                          }
+                     });
+                     if(found == 'true')
+                     {
+                          $(this).show();
+                     }
+                     else
+                     {
+                          $(this).hide();
+                     }
+                });
+           }
+      });
+ </script>
 </html>
