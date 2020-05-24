@@ -2,6 +2,7 @@
 session_start();
 include "../security.php";
 include "../conn.php";
+include "../task.php";
 
 ?>
 
@@ -42,6 +43,12 @@ include "../conn.php";
           <img class="img-profile rounded-circle" src="../photos/user.png">
         </a>
         <!-- Dropdown - User Information -->
+        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+          <a class="dropdown-item" href="log.php" >
+            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+            Log
+          </a>
+        </div>
         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
             <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -112,7 +119,7 @@ include "../conn.php";
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Niet gestart</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $taak -> unopend($conn,$id);  ?></div>
                 </div>
                 <div class="col-auto">
                   <i class="fa fa-times fa-2x text-gray-300"></i>
@@ -129,7 +136,7 @@ include "../conn.php";
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Bezig</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $taak -> bezig($conn,$id);  ?></div>
                 </div>
                 <div class="col-auto">
                   <i class="fa fa-spinner fa-2x text-gray-300"></i>
@@ -148,7 +155,7 @@ include "../conn.php";
                   <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Klaar</div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">16</div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php $taak -> finished($conn,$id);  ?></div>
                     </div>
                   </div>
                 </div>

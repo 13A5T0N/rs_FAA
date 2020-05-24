@@ -2,7 +2,7 @@
 session_start();
 include "../security.php";
 include "../conn.php";
-
+include "../task.php";
 ?>
 
 
@@ -133,7 +133,7 @@ include "../conn.php";
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
                   <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Niet gestart</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">9</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $taak -> unopend($conn,$id);  ?></div>
                 </div>
                 <div class="col-auto">
                   <i class="fa fa-times fa-2x text-gray-300"></i>
@@ -149,8 +149,8 @@ include "../conn.php";
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">In progress</div>
-                  <div class="h5 mb-0 font-weight-bold text-gray-800">13</div>
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Bezig</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800"><?php $taak -> bezig($conn,$id);  ?></div>
                 </div>
                 <div class="col-auto">
                   <i class="fa fa-spinner fa-2x text-gray-300"></i>
@@ -166,10 +166,10 @@ include "../conn.php";
             <div class="card-body">
               <div class="row no-gutters align-items-center">
                 <div class="col mr-2">
-                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Finished</div>
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Klaar</div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">16</div>
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php $taak -> finished($conn,$id);  ?></div>
                     </div>
                   </div>
                 </div>
