@@ -44,7 +44,7 @@ include "../conn.php";
 					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 							<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-							Logout
+							Uitloggen
 						</a>
 					</div>
 				</li>
@@ -69,13 +69,13 @@ include "../conn.php";
           <li>
 						<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
 						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -93,7 +93,7 @@ include "../conn.php";
 					<li>
 						<a href="listing.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>
@@ -101,14 +101,14 @@ include "../conn.php";
 		</div>
         <div class ="main-content">
         <div class="title">
-        projecten overzicht
+        Projecten overzichten
         </div>
         <div class ="container-fluid">
         <div class="card shadow mb-4">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Projecten
                   <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Add project
+                    Toevoegen
                   </button>
           </h6>
         </div>
@@ -127,7 +127,7 @@ include "../conn.php";
 
  <!-- Table -->
  <div>
-                     <input type="text" name="search" id="search" class="form-control" placeholder="Search..."/>
+                     <input type="text" name="search" id="search" class="form-control" placeholder="Zoeken..."/>
                 </div>
                 <br><br>
           <div class="table-responsive">
@@ -149,7 +149,7 @@ include "../conn.php";
                   <th>start datum</th>
                   <th>eind datum</th>
 				  <th>project Leider</th>
-                  <th>Show </th>
+                  <th>wijzen </th>
                 </tr>
               </thead>
               <tbody id="myTable">
@@ -168,7 +168,7 @@ include "../conn.php";
                   <td>
                       <form action="project_view.php" method="post">
                           <input type="hidden" name="project" value="<?php echo $row['project_id']; ?>">
-                          <button  type="submit" name="edit_btn" class="btn btn-success">show</button>
+                          <button  type="submit" name="edit_btn" class="btn btn-success">wijzen</button>
                       </form>
                   </td>
                 </tr>

@@ -48,7 +48,7 @@ include "../security.php";
           <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 							<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-							Logout
+							Uitloggen
 						</a>
 					</div>
 				</li>
@@ -72,13 +72,13 @@ include "../security.php";
 					<li>
 						<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
 						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -96,7 +96,7 @@ include "../security.php";
 					<li>
 						<a href="listing.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>

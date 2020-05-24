@@ -44,7 +44,7 @@ include "../security.php";
 					<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 						<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
 							<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-							Logout
+							Uitloggen
 						</a>
 					</div>
 				</li>
@@ -67,13 +67,13 @@ include "../security.php";
           <li>
 						<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
 						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -91,7 +91,7 @@ include "../security.php";
 					<li>
 						<a href="listing.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>
@@ -99,14 +99,14 @@ include "../security.php";
 		</div>
 		<div class="main-content">
 			<div class="title">
-				Register user
+				Gebruiken registreren
 			</div>
       <br>
       <div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Add Admin Data</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Gebruiker informatie</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -175,9 +175,9 @@ include "../security.php";
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary">Admin Profile
+          <h6 class="m-0 font-weight-bold text-primary">Gebruikers
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addadminprofile">
-                    Add Admin Profile
+                    Gebruiker toevoegen
                   </button>
           </h6>
         </div>
@@ -215,12 +215,12 @@ include "../security.php";
                   <th>#</th>
                   <th>Naam</th>
                   <th>Voornaam</th>
-                  <th>Tel</th>
+                  <th>Telefoon </th>
 									<th>Email</th>
 									<th>Adres</th>
 									<th>Rol</th>
 									<th>Richting</th>
-                  <th>EDIT </th>
+                  <th>Bewerken </th>
                 </tr>
               </thead>
               <tbody>
@@ -242,7 +242,7 @@ include "../security.php";
                   <td>
                       <form action="register_edit.php" method="post">
                           <input type="hidden" name="edit_id" value="<?php echo $row['persoon_id']; ?>">
-                          <button  type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+                          <button  type="submit" name="edit_btn" class="btn btn-success"> Bewerk</button>
                       </form>
                   </td>
                 </tr>
@@ -272,7 +272,7 @@ include "../security.php";
 								<span aria-hidden="true">×</span>
 							</button>
 						</div>
-						<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+						<div class="modal-body">Druk op de "uitloggen knop" als u klaar bent om uit te loggen.</div>
 						<div class="modal-footer">
 							<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
