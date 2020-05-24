@@ -67,15 +67,15 @@ $project = $_POST["project"];
 			<nav>
 				<ul>
           <li>
-						<a href="index.php">
+		  <a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
 						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -84,10 +84,11 @@ $project = $_POST["project"];
 							<span>Taken</span>
 						</a>
 					</li>
+
 					<li>
-						<a href="listing.php">
+						<a href="allaround.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>

@@ -65,15 +65,15 @@ include "conn.php";
 			<nav>
 				<ul>
 					<li>
-						<a href="index.php">
+					<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
-						<a href="#">
+						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -82,16 +82,11 @@ include "conn.php";
 							<span>Taken</span>
 						</a>
 					</li>
+
 					<li>
-						<a href="#">
-							<span><i class="fa fa-book"></i></span>
-							<span>Rapporten</span>
-						</a>
-					</li>
-					<li>
-						<a href="listing.php">
+						<a href="allaround.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>

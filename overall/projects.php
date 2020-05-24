@@ -66,15 +66,15 @@ include "../conn.php";
 			<nav>
 				<ul>
           <li>
-						<a href="index.php">
+		  <a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
 						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -83,10 +83,11 @@ include "../conn.php";
 							<span>Taken</span>
 						</a>
 					</li>
+
 					<li>
 						<a href="allaround.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>
@@ -94,14 +95,14 @@ include "../conn.php";
 		</div>
         <div class ="main-content">
         <div class="title">
-        projecten overzicht
+        Projecten overzicht
         </div>
         <div class ="container-fluid">
         <div class="card shadow mb-4">
         <div class="card-header py-3">
           <h6 class="m-0 font-weight-bold text-primary">Projecten
                   <button type="button" class="btn btn-primary" onclick="new_project()" >
-                    Add project
+                    Project toevoegen
                   </button>
           </h6>
         </div>
@@ -134,11 +135,11 @@ include "../conn.php";
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>project</th>
-                  <th>start datum</th>
-                  <th>eind datum</th>
+                  <th>Project</th>
+                  <th>Start datum</th>
+                  <th>Eind datum</th>
 				  <th>Leider</th>
-                  <th>Show </th>
+                  <th>Wijzen </th>
                 </tr>
               </thead>
               <tbody>

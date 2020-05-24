@@ -77,35 +77,36 @@ include "../security.php";
 		<nav>
 			<ul>
 				<li>
-					<a href="index.php">
-						<span><i class="fa fa-home"></i></span>
-						<span>Home</span>
-					</a>
-				</li>
-				<li>
-					<a href="projects.php">
-						<span><i class="fa fa-product-hunt"></i></span>
-						<span>Projects</span>
-					</a>
-				</li>
-				<li>
-					<a href="taakform.php">
-						<span><i class="fa fa-tasks"></i></span>
-						<span>Taken</span>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<span><i class="fa fa-users"></i></span>
-						<span>Users</span>
-					</a>
-				</li>
-			</ul>
+				<a href="index.php">
+							<span><i class="fa fa-home"></i></span>
+							<span>Startpagina</span>
+						</a>
+					</li>
+					<li>
+						<a href="projects.php">
+							<span><i class="fa fa-product-hunt"></i></span>
+							<span>Projecten</span>
+						</a>
+					</li>
+					<li>
+						<a href="taakform.php">
+							<span><i class="fa fa-tasks"></i></span>
+							<span>Taken</span>
+						</a>
+					</li>
+
+					<li>
+						<a href="allaround.php">
+							<span><i class="fa fa-users"></i></span>
+							<span>Gebruikers</span>
+						</a>
+					</li>
+				</ul>
 		</nav>
 	</div>
 	<div class="main-content">
 		<div class="title">
-			Register user
+		Gebruiker registreren
 		</div>
 		<br>
 		<div class="modal fade" id="addadminprofile" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -113,7 +114,7 @@ include "../security.php";
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLabel">Add Admin Data</h5>
+						<h5 class="modal-title" id="exampleModalLabel">Nieuwe gebruiker</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -141,7 +142,7 @@ include "../security.php";
 								<input type="email" name="email" class="form-control" placeholder="Enter Email">
 							</div>
 							<div class="form-group">
-								<label>Password</label>
+								<label>Passwoord</label>
 								<input type="password" name="password" class="form-control"
 									placeholder="Enter Password">
 							</div>
@@ -190,10 +191,10 @@ include "../security.php";
 			<!-- DataTales Example -->
 			<div class="card shadow mb-4">
 				<div class="card-header py-3">
-					<h6 class="m-0 font-weight-bold text-primary">All around user Profile
+					<h6 class="m-0 font-weight-bold text-primary">Alle gebruikers
 						<button type="button" class="btn btn-primary" data-toggle="modal"
 							data-target="#addadminprofile">
-							Add user Profile
+							Gebruiker aanmaken
 						</button>
 					</h6>
 				</div>
@@ -231,8 +232,8 @@ include "../security.php";
 									<th>adres</th>
 									<th>rol</th>
 									<th>richting</th>
-									<th>EDIT </th>
-									<th>DELETE </th>
+									<th>wijzigen </th>
+									<th>verwijderen </th>
 								</tr>
 							</thead>
 							<tbody>
@@ -255,7 +256,7 @@ include "../security.php";
 										<form action="allaround_edit.php" method="post">
 											<input type="hidden" name="edit_id"
 												value="<?php echo $row['persoon_id']; ?>">
-											<button type="submit" name="edit_btn" class="btn btn-success"> EDIT</button>
+											<button type="submit" name="edit_btn" class="btn btn-success"> wijzig</button>
 										</form>
 									</td>
 									<td>
@@ -263,7 +264,7 @@ include "../security.php";
 											<input type="hidden" name="delete_id"
 												value="<?php echo $row['persoon_id']; ?>">
 											<button type="submit" name="delete_btn" class="btn btn-danger">
-												DELETE</button>
+												verwijder</button>
 										</form>
 									</td>
 								</tr>

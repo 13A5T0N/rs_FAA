@@ -51,28 +51,28 @@ include "../security.php";
 			</div>
 
 			<div class="logo">
-				<i class="fa fa-tachometer"></i>
-				<span>Brand</span>
-			</div>
-			<a href="#" class="nav-trigger"><span></span></a>
-		</div>
-		<div class="side-nav">
-			<div class="logo">
-				<i class="fa fa-tachometer"></i>
-				<span>Brand</span>
+      <i class="fa fa-tachometer"></i>
+      <span>Brand</span>
+    </div>
+    <a href="#" class="nav-trigger"><span></span></a>
+  </div>
+  <div class="side-nav">
+    <div class="logo">
+      <img src="../photos/logo.png">
+      <span>NATIN</span>
 			</div>
 			<nav>
 				<ul>
 					<li>
-						<a href="index.php">
+					<a href="index.php">
 							<span><i class="fa fa-home"></i></span>
-							<span>Home</span>
+							<span>Startpagina</span>
 						</a>
 					</li>
 					<li>
 						<a href="projects.php">
 							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projects</span>
+							<span>Projecten</span>
 						</a>
 					</li>
 					<li>
@@ -81,10 +81,11 @@ include "../security.php";
 							<span>Taken</span>
 						</a>
 					</li>
+
 					<li>
-						<a href="listing.php">
+						<a href="allaround.php">
 							<span><i class="fa fa-users"></i></span>
-							<span>Users</span>
+							<span>Gebruikers</span>
 						</a>
 					</li>
 				</ul>
@@ -97,7 +98,7 @@ include "../security.php";
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">EDIT Admin Profile</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Nieuw Project</h6>
           </div>
           <div class="card-body">
           <form action="project_save.php" method="POST">
