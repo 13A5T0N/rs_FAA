@@ -1,6 +1,6 @@
 <?php session_start();
 include "../security.php";
- ?>
+?>
 
 
 <!DOCTYPE html>
@@ -11,8 +11,7 @@ include "../security.php";
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>FAA</title>
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet'
-		type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<link rel="stylesheet" href="main.css">
@@ -30,15 +29,9 @@ include "../security.php";
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	<script src="https://code.highcharts.com/modules/data.js"></script>
 	<script src="main.js"></script>
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-		crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 </head>
 
@@ -46,8 +39,7 @@ include "../security.php";
 	<div class="header">
 		<div class="logo1">
 			<li class="nav-item dropdown no-arrow">
-				<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-					aria-haspopup="true" aria-expanded="false">
+				<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<span class="mr-2 d-none d-lg-inline text-gray-600 small">
 						<?php echo $_SESSION['username']; ?>
 
@@ -55,12 +47,16 @@ include "../security.php";
 					<img class="img-profile rounded-circle" src="../photos/user.png">
 				</a>
 				<!-- Dropdown - User Information -->
-        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-            <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-            Logout
-          </a>
-        </div>
+				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+					<a class="dropdown-item" href="log.php">
+						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						Log
+					</a>
+					<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						Logout
+					</a>
+				</div>
 			</li>
 
 
@@ -80,41 +76,39 @@ include "../security.php";
 		<nav>
 			<ul>
 				<li>
-				<a href="index.php">
-							<span><i class="fa fa-home"></i></span>
-							<span>Startpagina</span>
-						</a>
-					</li>
-					<li>
-						<a href="projects.php">
-							<span><i class="fa fa-product-hunt"></i></span>
-							<span>Projecten</span>
-						</a>
-					</li>
-					<li>
-						<a href="taakform.php">
-							<span><i class="fa fa-tasks"></i></span>
-							<span>Taken</span>
-						</a>
-					</li>
+					<a href="index.php">
+						<span><i class="fa fa-home"></i></span>
+						<span>Startpagina</span>
+					</a>
+				</li>
+				<li>
+					<a href="projects.php">
+						<span><i class="fa fa-product-hunt"></i></span>
+						<span>Projecten</span>
+					</a>
+				</li>
+				<li>
+					<a href="taakform.php">
+						<span><i class="fa fa-tasks"></i></span>
+						<span>Taken</span>
+					</a>
+				</li>
 
-					<li>
-						<a href="allaround.php">
-							<span><i class="fa fa-users"></i></span>
-							<span>Gebruikers</span>
-						</a>
-					</li>
-				</ul>
+				<li>
+					<a href="allaround.php">
+						<span><i class="fa fa-users"></i></span>
+						<span>Gebruikers</span>
+					</a>
+				</li>
+			</ul>
 		</nav>
 	</div>
 	<div class="main-content">
 		<div class="title">
 			<nav>
 				<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-						aria-controls="nav-home" aria-selected="true">Taken Registreren</a>
-					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-						aria-controls="nav-profile" aria-selected="false">Taken Overzicht</a>
+					<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Taken Registreren</a>
+					<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Taken Overzicht</a>
 				</div>
 			</nav>
 		</div>
@@ -127,8 +121,7 @@ include "../security.php";
 				<div class="row">
 					<div class="col-md-12">
 						<div class="tab-content" id="nav-tabContent">
-							<div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-								aria-labelledby="nav-home-tab">
+							<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
 								<?php include('taken.php'); ?>
 								<div class="container contact">
@@ -138,19 +131,18 @@ include "../security.php";
 										<div class="form-group">
 
 											<div class="col-sm-10">
-												<input required list="project" type="text" class="form-control"
-													placeholder="Projectnaam" name="project">
+												<input required list="project" type="text" class="form-control" placeholder="Projectnaam" name="project">
 												<datalist id="project">
-													<?php include ('../conn.php');
-                                  					 $selectproject="select * from projecten.project " ;
-                                  					 $result = mysqli_query($conn,$selectproject);
-                                  					 if (mysqli_num_rows($result) >0){
-                                  						 while($row =mysqli_fetch_assoc($result)){
-                                  							//  echo "<option value='".$row['persoon_id']." ".$row['persoon_voornaam'] ." ". "$row[persoon_naam])'>".$row['persoon_voornaam'] ." ". "$row[persoon_naam]</option>";
-                                  							echo "<option value=".$row['project_id'].">".$row['project_naam'] ."</option>";
-                                  						 }
-                                                       }
-                                                       ?>
+													<?php include('../conn.php');
+													$selectproject = "select * from projecten.project ";
+													$result = mysqli_query($conn, $selectproject);
+													if (mysqli_num_rows($result) > 0) {
+														while ($row = mysqli_fetch_assoc($result)) {
+															//  echo "<option value='".$row['persoon_id']." ".$row['persoon_voornaam'] ." ". "$row[persoon_naam])'>".$row['persoon_voornaam'] ." ". "$row[persoon_naam]</option>";
+															echo "<option value=" . $row['project_id'] . ">" . $row['project_naam'] . "</option>";
+														}
+													}
+													?>
 												</datalist>
 												<br>
 											</div>
@@ -172,35 +164,31 @@ include "../security.php";
 												<tbody>
 													<tr>
 														<td class="col-sm-4">
-															<input required list="persoon" type="text" name="persoon"
-																class="form-control" />
+															<input required list="persoon" type="text" name="persoon" class="form-control" />
 															<datalist id="persoon">
 																<?php
-                                  					include ('conn.php');
-                                  					 $selectpersoon="select * from projecten.persoon " ;
-                                  					 $result = mysqli_query($conn,$selectpersoon);
-                                  					 if (mysqli_num_rows($result) >0){
-                                  						 while($row =mysqli_fetch_assoc($result)){
+																include('conn.php');
+																$selectpersoon = "select * from projecten.persoon ";
+																$result = mysqli_query($conn, $selectpersoon);
+																if (mysqli_num_rows($result) > 0) {
+																	while ($row = mysqli_fetch_assoc($result)) {
 
-                                  							echo "<option value=".$row['persoon_id'].">".$row['persoon_voornaam'] ." ". "$row[persoon_naam]</option>";
-                                  						 }
-                                  					 }
+																		echo "<option value=" . $row['persoon_id'] . ">" . $row['persoon_voornaam'] . " " . "$row[persoon_naam]</option>";
+																	}
+																}
 
-                                  					  ?>
+																?>
 															</datalist>
 														</td>
 														<td class="col-sm-4">
-															<input required type="text" name="taak"
-																class="form-control" />
+															<input required type="text" name="taak" class="form-control" />
 
 														</td>
 														<td class="col-sm-4">
-															<input type="text" name="beschrijving"
-																class="form-control" />
+															<input type="text" name="beschrijving" class="form-control" />
 														</td>
 														<td class="col-sm-4">
-															<input required type="date" name="eind"
-																class="form-control" />
+															<input required type="date" name="eind" class="form-control" />
 														</td>
 
 
@@ -213,8 +201,7 @@ include "../security.php";
 													<tr>
 
 														<td colspan="0" style="text-align: left;">
-															<input type="button" class="btn btn-success" id="addrow"
-																value="+" />
+															<input type="button" class="btn btn-success" id="addrow" value="+" />
 														</td>
 
 
@@ -237,16 +224,15 @@ include "../security.php";
 								</div>
 								</form>
 							</div>
-							<div class="tab-pane fade" id="nav-profile" role="tabpanel"
-								aria-labelledby="nav-profile-tab">
+							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
 
 								<div class="table-responsive">
 									<?php
 
-                        						$query = "SELECT taak_id, taak_naam, taak_beschrijving, taak_einde, project.project_naam as pnaam, persoon.persoon_naam as naam FROM taak, project, persoon WHERE taak.project_id = project.project_id AND taak.persoon_id = persoon.persoon_id";
-                        						$query_run = mysqli_query($conn, $query);
+									$query = "SELECT taak_id, taak_naam, taak_beschrijving, taak_einde, project.project_naam as pnaam, persoon.persoon_naam as naam FROM taak, project, persoon WHERE taak.project_id = project.project_id AND taak.persoon_id = persoon.persoon_id";
+									$query_run = mysqli_query($conn, $query);
 
-                        						 ?>
+									?>
 
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 										<thead>
@@ -261,26 +247,26 @@ include "../security.php";
 										</thead>
 										<tbody>
 											<?php
-                        								if (mysqli_num_rows($query_run) > 0) {
-                        									while ($row = mysqli_fetch_assoc($query_run)) {
+											if (mysqli_num_rows($query_run) > 0) {
+												while ($row = mysqli_fetch_assoc($query_run)) {
 
-                        										?>
+											?>
 
-											<tr>
-												<td> <?php echo $row['taak_id']; ?> </td>
-												<td> <?php echo $row['pnaam']; ?> </td>
-												<td> <?php echo $row['naam']; ?> </td>
-												<td> <?php echo $row['taak_naam']; ?> </td>
-												<td> <?php echo $row['taak_beschrijving']; ?> </td>
-												<td> <?php echo $row['taak_einde']; ?> </td>
-											</tr>
+													<tr>
+														<td> <?php echo $row['taak_id']; ?> </td>
+														<td> <?php echo $row['pnaam']; ?> </td>
+														<td> <?php echo $row['naam']; ?> </td>
+														<td> <?php echo $row['taak_naam']; ?> </td>
+														<td> <?php echo $row['taak_beschrijving']; ?> </td>
+														<td> <?php echo $row['taak_einde']; ?> </td>
+													</tr>
 											<?php
-                        							}
-                        						}else {
-                        							echo "No records found";
-                        						}
+												}
+											} else {
+												echo "No records found";
+											}
 
-                        						 ?>
+											?>
 
 										</tbody>
 									</table>
@@ -298,8 +284,7 @@ include "../security.php";
 
 
 	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-		aria-hidden="true">
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -326,10 +311,10 @@ include "../security.php";
 
 </body>
 <script>
-	$(document).ready(function () {
+	$(document).ready(function() {
 		var counter = 0;
 
-		$("#addrow").on("click", function () {
+		$("#addrow").on("click", function() {
 			var newRow = $("<tr>");
 			var cols = "";
 
@@ -347,14 +332,13 @@ include "../security.php";
 
 
 
-		$("table.order-list").on("click", ".ibtnDel", function (event) {
+		$("table.order-list").on("click", ".ibtnDel", function(event) {
 			$(this).closest("tr").remove();
 			counter -= 1
 		});
 
 
 	});
-
 </script>
 
 </html>
