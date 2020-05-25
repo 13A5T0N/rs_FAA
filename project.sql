@@ -1,5 +1,7 @@
 create database projecten;
 
+SET FOREIGN_KEY_CHECKS=0;
+
 create table projecten.richting(
 richting_id int primary key auto_increment,
 naam varchar(20) 
@@ -61,8 +63,8 @@ project_beschrijving text,
 check(project_eind > project_start),
 
 constraint primary key(project_id,project_naam),
-constraint FK_persoon foreign key(persoon_id) references projecten.persoon(persoon_id)
-);
+constraint FK_persoon foreign key(persoon_id) references projecten.persoon(persoon_id) ON DELETE CASCADE
+); 
 
 create index start_datum
 on projecten.project(project_start);
@@ -75,7 +77,7 @@ betrokken_id int auto_increment primary key,
 project_id int,
 persoon_id int,
 
-constraint FK_BTpersoon foreign key(persoon_id) references projecten.persoon(persoon_id),
+constraint FK_BTpersoon foreign key(persoon_id) references projecten.persoon(persoon_id) ON DELETE CASCADE,
 constraint Fk_BTproject foreign key(project_id) references projecten.project(project_id)
 );
 
@@ -86,9 +88,10 @@ persoon_id int,
 taak_naam varchar(20),
 taak_beschrijving text,
 taak_einde date,
+taak varchar(20) default "not started",
 
 constraint FK_TKproject foreign key(project_id) references projecten.project(project_id),
-constraint FK_TKpersoon foreign key(persoon_id) references projecten.persoon(persoon_id)
+constraint FK_TKpersoon foreign key(persoon_id) references projecten.persoon(persoon_id) ON DELETE CASCADE
 );
 
 create table projecten.kwitantie(
@@ -96,7 +99,7 @@ kwintantie_id int auto_increment primary key,
 taak_id int,
 prijs double,
 
-constraint FK_taak foreign key(taak_id) references projecten.taak(taak_id)
+constraint FK_taak foreign key(taak_id) references projecten.taak(taak_id) 
 );
 
 create table projecten.materialen(
@@ -105,7 +108,7 @@ materiaal_naam varchar(20),
 materiaal_prijs double,
 project_id int,
 
-constraint FK_PR foreign key(project_id) references projecten.project(project_id)
+constraint FK_PR foreign key(project_id) references projecten.project(project_id) 
 );
 
 create table projecten.schatting(
@@ -131,3 +134,4 @@ check(prijs >= 0.0),
 constraint FK_EXtaak foreign key(taak_id) references projecten.taak(taak_id),
 constraint FK_Bedr foreign key(bedrijf_id) references projecten.bedrijf(bedrijf_id)
 );
+
