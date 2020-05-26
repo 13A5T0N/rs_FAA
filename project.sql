@@ -135,3 +135,24 @@ constraint FK_EXtaak foreign key(taak_id) references projecten.taak(taak_id),
 constraint FK_Bedr foreign key(bedrijf_id) references projecten.bedrijf(bedrijf_id)
 );
 
+INSERT INTO `richting` (`richting_id`, `naam`) VALUES
+(1, 'ICT'),
+(2, 'AV'),
+(3, 'PT'),
+(4, 'infrastructuur'),
+(5, 'bouw'),
+(6, 'mijnbouw'),
+(7, 'analisten'),
+(8, 'apothekers assistent'),
+(9, 'electro'),
+(10, 'WTB');
+
+INSERT INTO `rol` (`rol_id`, `naam`) VALUES
+(1, 'student'),
+(2, 'docent'),
+(3, 'Administratie'),
+(4, 'Financien'),
+(5, 'Overall User');
+
+INSERT INTO `persoon` (`persoon_id`, `persoon_naam`, `persoon_voornaam`, `persoon_tel`, `persoon_email`, `persoon_adres`, `rol_id`, `richting_id`, `password`) VALUES
+(1, 'overall', 'overall', '456', NULL, NULL, 5, 1, 'overall');
