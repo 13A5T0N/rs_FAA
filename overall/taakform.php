@@ -14,7 +14,7 @@ include "../security.php";
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="../css/main.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -36,20 +36,19 @@ include "../security.php";
 </head>
 
 <body>
-	<div class="header">
+	<div class="header ">
 		<div class="logo1">
 			<li class="nav-item dropdown no-arrow">
-				<a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					<span class="mr-2 d-none d-lg-inline text-gray-600 small">
+				<a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<span class="mr-2 d-none d-lg-inline text-white small">
 						<?php echo $_SESSION['username']; ?>
-
 					</span>
-					<img class="img-profile rounded-circle" src="../photos/user.png">
+					<img class="img-profile rounded-circle text-white" src="../photos/user.png">
 				</a>
 				<!-- Dropdown - User Information -->
 				<div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 					<a class="dropdown-item" href="log.php">
-						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+						<i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-white"></i>
 						Log
 					</a>
 					<a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -124,9 +123,12 @@ include "../security.php";
 							<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
 								<?php include('taken.php'); ?>
+
+
+
 								<div class="container contact">
 									<form method="post" action="taken.php">
-										<?php include('errors.php'); ?>
+										<?php include('../errors.php'); ?>
 
 										<div class="form-group">
 
@@ -156,7 +158,7 @@ include "../security.php";
 														<td>verantwoordelijke</td>
 														<td>Taak</td>
 														<td>beschrijving</td>
-														<td>Einddatum</td>
+														<td>Eind datum</td>
 
 
 													</tr>
@@ -224,7 +226,14 @@ include "../security.php";
 								</div>
 								</form>
 							</div>
+
+
 							<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+								<div>
+									<input type="text" name="search" id="search" class="form-control" placeholder="Zoeken..." />
+								</div>
+								<br><br>
 
 								<div class="table-responsive">
 									<?php
@@ -237,15 +246,17 @@ include "../security.php";
 									<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 										<thead>
 											<tr>
-												<th>#</th>
-												<th>project</th>
-												<th>persoon</th>
+											<tr>
 												<th>taak</th>
+												<th>project</th>
+												<th>persoon naam</th>
+												<th>taak naam</th>
 												<th>beschrijving</th>
-												<th>Eind Datum</th>
+												<th>eind datum</th>
+											</tr>
 											</tr>
 										</thead>
-										<tbody>
+										<tbody id="myTable">
 											<?php
 											if (mysqli_num_rows($query_run) > 0) {
 												while ($row = mysqli_fetch_assoc($query_run)) {
