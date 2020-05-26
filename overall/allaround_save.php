@@ -120,10 +120,10 @@ if (isset($_POST['delete_btn'])) {
     $insertquery = "INSERT INTO `log`( `persoon_id`, `status`, `datum`) 
     VALUES ($id,'user deleted','$date')";
     $db->query($insertquery);
-    // header('Location:allaround.php');
+    header('Location:allaround.php');
   } else {
     $_SESSION['status'] = 'Your Data is not Deleted';
-    // header('Location:allaround.php');
+    header('Location:allaround.php');
   }
 
 }
