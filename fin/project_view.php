@@ -80,24 +80,32 @@ $project = $_POST["project"];
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="Begrotingen.php">
+            <span><i class="fa fa-usd"></i></span>
+            <span>Begrotingen</span>
+          </a>
+        </li>
+        <li>
+          <a href="bedrijf.php">
+            <span><i class="fa fa-building-o"></i></span>
+            <span>Bedrijf</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="taakform.php">
             <span><i class="fa fa-tasks"></i></span>
             <span>Taken</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="projecten_uitgaven.php">
             <span><i class="fa fa-book"></i></span>
             <span>Rapporten</span>
           </a>
         </li>
-        <li>
-          <a href="listing.php">
-            <span><i class="fa fa-users"></i></span>
-            <span>Users</span>
-          </a>
-        </li>
       </ul>
+
     </nav>
   </div>
   <div class="main-content">

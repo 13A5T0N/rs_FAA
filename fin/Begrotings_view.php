@@ -60,6 +60,7 @@ $exacte = $_POST["exacte"];
 		</div>
 		<a href="#" class="nav-trigger"><span></span></a>
 	</div>
+
 	<div class="side-nav">
 		<div class="logo">
 			<img src="../photos/logo.png">
@@ -68,7 +69,7 @@ $exacte = $_POST["exacte"];
 		<nav>
 			<ul>
 				<li>
-					<a href="#">
+					<a href="index.php">
 						<span><i class="fa fa-home"></i></span>
 						<span>Home</span>
 					</a>

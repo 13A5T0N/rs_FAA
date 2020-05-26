@@ -59,13 +59,13 @@ include "../conn.php";
 	</div>
 	<div class="side-nav">
 		<div class="logo">
-			<i class="fa fa-tachometer"></i>
-			<span>Brand</span>
+			<img src="../photos/logo.png">
+			<span>NATIN</span>
 		</div>
 		<nav>
 			<ul>
 				<li>
-					<a href="#">
+					<a href="index.php">
 						<span><i class="fa fa-home"></i></span>
 						<span>Home</span>
 					</a>
@@ -77,24 +77,32 @@ include "../conn.php";
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="Begrotingen.php">
+						<span><i class="fa fa-usd"></i></span>
+						<span>Begrotingen</span>
+					</a>
+				</li>
+				<li>
+					<a href="bedrijf.php">
+						<span><i class="fa fa-building-o"></i></span>
+						<span>Bedrijf</span>
+					</a>
+				</li>
+
+				<li>
+					<a href="taakform.php">
 						<span><i class="fa fa-tasks"></i></span>
 						<span>Taken</span>
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="projecten_uitgaven.php">
 						<span><i class="fa fa-book"></i></span>
 						<span>Rapporten</span>
 					</a>
 				</li>
-				<li>
-					<a href="listing.php">
-						<span><i class="fa fa-users"></i></span>
-						<span>Users</span>
-					</a>
-				</li>
 			</ul>
+
 		</nav>
 	</div>
 	<div class="main-content">

@@ -65,7 +65,7 @@ include "../conn.php"; ?>
     <nav>
       <ul>
         <li>
-          <a href="#">
+          <a href="index.php">
             <span><i class="fa fa-home"></i></span>
             <span>Home</span>
           </a>

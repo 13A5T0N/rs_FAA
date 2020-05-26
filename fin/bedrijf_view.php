@@ -63,7 +63,7 @@ $project = $_POST["project"];
 	</div>
 	<div class="side-nav">
 		<div class="logo">
-			<img src="photos/logo.png">
+			<img src="../photos/logo.png">
 			<span>NATIN</span>
 		</div>
 		<nav>
@@ -100,18 +100,11 @@ $project = $_POST["project"];
 					</a>
 				</li>
 				<li>
-					<a href="#">
+					<a href="projecten_uitgaven.php">
 						<span><i class="fa fa-book"></i></span>
 						<span>Rapporten</span>
 					</a>
 				</li>
-				<li>
-					<a href="listing.php">
-						<span><i class="fa fa-users"></i></span>
-						<span>Users</span>
-					</a>
-				</li>
-
 			</ul>
 
 		</nav>
