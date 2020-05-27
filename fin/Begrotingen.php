@@ -172,7 +172,13 @@ include "../conn.php";
                       <td> <?php echo $row['exacte_id']; ?> </td>
                       <td> <?php echo $row['prijs']; ?> </td>
 
-                      <td> <?php  ?> </td>
+                      <td>  <?php   $exacteid = $row["exacte_id"];
+    $sql1   = "SELECT * from exacte where exacte_id= $exacteid";
+		$query1 = mysqli_query($conn, $sql1);
+		
+        while ($line = mysqli_fetch_assoc($query1)) {?><?php
+            echo '  <a href="data:application/pdf;base64,' . base64_encode($line['kwitantie']) . '"> Show Kwitantie </a>'; } ?>
+ </td>
 
                       <td> <?php echo $row['datum']; ?> </td>
                       <td>
