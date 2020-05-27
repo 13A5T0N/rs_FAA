@@ -118,12 +118,11 @@ if (mysqli_num_rows($result) > 0) {
       <td>".$row["bedrijf_email"]. "</td>
       <td>".$row["bedrijf_tel"]. "</td>
       <td>".$row["prijs"]."</td>
-    <td>";    
-    $sql1   = "SELECT * from exacte where exacte_id= $exacteid";
-        $query1 = mysqli_query($conn, $sql1);
-        while ($line = mysqli_fetch_assoc($query1)) {?><div class="image"><?php
-            echo '  <img src="data:image/jpeg;base64,' . $line['kwitantie'] . '">  </a>'; } ?></div><?php echo "</td>
-            
+      <td>";    
+      $sql1   = "SELECT * from exacte where exacte_id= $exacteid";
+          $query1 = mysqli_query($conn, $sql1);
+          while ($line = mysqli_fetch_assoc($query1)) {?><?php
+              echo '  <a href="data:application/pdf;base64,' . base64_encode($line['kwitantie']) . '"> Show Kwitantie </a>'; } ?><?php echo "</td>
       <td>".$row["datum"]."</td>
      
       </tr>
