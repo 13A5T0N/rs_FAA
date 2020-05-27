@@ -97,7 +97,7 @@ include "../conn.php";
 				  <div class="form-group">
 				  
 				  <label for=""> Naam </label>
-                 <input required list="Bedrijf" type="text" value="<?php echo $row['bedrijf_id'] ?>" class="form-control" name="Bedrijf_edit" placeholder="Bedrijf">
+                 <input required list="Bedrijf" type="text" value="<?php echo $row['bedrijf_id'] ?>" class="form-control" name="Bedrijf_edit" placeholder="Bedrijf" required>
 					 <datalist id="Bedrijf">
 					 <?php
 					include ('../conn.php');
@@ -118,19 +118,19 @@ include "../conn.php";
 					 
                   <div class="form-group">
                   <label>Prijs</label>
-                  <input type="number" name="edit_prijs" value="<?php echo $row['prijs'] ?>" class="form-control" placeholder="Prijs">
+                  <input type="number" name="edit_prijs" value="<?php echo $row['prijs'] ?>" class="form-control" placeholder="Prijs" required>
                   </div>
 				  <div>
 				  <label>Start datum</label><br>
-                  <input type="date" name="edit_datum" value="<?php echo $row['Begin_datum'] ?>" class="" placeholder="Start datum">
+                  <input type="date" name="edit_datum" value="<?php echo $row['Begin_datum'] ?>" class="" placeholder="Start datum" required>
                   </div>
                   <div class="form-group">
                   <label>Kwitantie</label><br>
-				  <input type="file" name="edit_kwitantie" value="<?php echo $row['kwitantie'] ?>" class="" placeholder="Kwitantie" accept="application/pdf">
+				  <input type="file" name="edit_kwitantie" value="<?php echo $row['kwitantie'] ?>" class="" placeholder="Kwitantie" accept="application/pdf" required>
                   </div>
 				  
                   <div class="form-group">
-                 <input required list="Taak" type="text" value="<?php echo $row['taak_id'] ?>" class="form-control" name="Taak_edit" placeholder="Taak">
+                 <input required list="Taak" type="text" value="<?php echo $row['taak_id'] ?>" class="form-control" name="Taak_edit" placeholder="Taak" required>
 					 <datalist id="Taak">
 					 <?php
 					include ('../conn.php');

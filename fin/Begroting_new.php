@@ -115,7 +115,7 @@
 							<div class="form-group">
 
 								<label for=""> naam
-									<input required list="Bedrijf" type="text" class="form-control" name="Bedrijf" placeholder="Bedrijf">
+									<input required list="Bedrijf" type="text" class="form-control" name="Bedrijf" placeholder="Bedrijf" required>
 									<datalist id="Bedrijf">
 										<?php
 										$selectbedrijfid = "select * from projecten.bedrijf ";
@@ -135,19 +135,19 @@
 							</label>
 							<div class="form-group">
 								<label>Prijs</label>
-								<input type="number" name="prijs" value="" class="form-control" placeholder="Prijs">
+								<input type="number" name="prijs" value="" class="form-control" placeholder="Prijs" required>
 							</div>
 							<div>
 								<label>Start datum</label><br>
-								<input type="date" name="datum" value="" class="" placeholder="Start datum">
+								<input type="date" name="datum" value="" class="" placeholder="Start datum" required>
 							</div>
 							<div class="form-group">
 								<label>Kwitantie</label><br>
-								<input type="file" name="kwitantie" value="" class="" placeholder="Kwitantie">
+								<input type="file" name="kwitantie" value="" class="" placeholder="Kwitantie" required>
 							</div>
 
 							<div class="form-group">
-								<input required list="Taak" type="text" class="form-control" name="Taak" placeholder="Taak">
+								<input required list="Taak" type="text" class="form-control" name="Taak" placeholder="Taak" required>
 								<datalist id="Taak">
 									<?php
 
