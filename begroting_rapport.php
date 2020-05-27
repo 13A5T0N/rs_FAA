@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/rapport.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
+<style>
+.image{
+ margin-top:7%;
+margin-left:15%;
+/* margin-right:22%; */
+}
+
+</style></head>
+
 
 
 <?php 
@@ -57,7 +55,7 @@ if ($result->num_rows > 0) {
   <div class="project_info  col-s4">
     <table class="table " >
       <tr>
-         <td>Exacte id:</td>
+         <td>#:</td>
          <td><?php echo $exacteid; ?></td>
       </tr>
       <tr>
@@ -86,9 +84,9 @@ if ($result->num_rows > 0) {
       <thead>
         <th>#</th>
         <th>bedrijf</th>
-        <th>bedrijf adres</th>
-        <th>bedrijf email</th>
-        <th>bedrijf telefoon</th>
+        <th>adres</th>
+        <th>email</th>
+        <th>telefoon</th>
         <th>prijs</th>
         <th>kwitantie</th>
         <th>Begin datum </th>
@@ -98,7 +96,7 @@ if ($result->num_rows > 0) {
       <tbody>
         <?php
         $nr = 1;
-$sql = "select  bedrijf_naam,bedrijf_adres, taak_naam, taak_beschrijving, taak_einde,prijs,kwitantie,bedrijf_tel, bedrijf_email, Begin_datum
+$sql = "select  bedrijf_naam,bedrijf_adres, taak_naam, taak_beschrijving, taak_einde,prijs,kwitantie,bedrijf_tel, bedrijf_email, datum
 from taak, bedrijf, exacte
 where 
 exacte.taak_id = taak.taak_id
@@ -120,13 +118,12 @@ if (mysqli_num_rows($result) > 0) {
       <td>".$row["bedrijf_email"]. "</td>
       <td>".$row["bedrijf_tel"]. "</td>
       <td>".$row["prijs"]."</td>
-    <td>";    
-    $sql1   = "SELECT * from exacte where exacte_id= $exacteid";
-        $query1 = mysqli_query($conn, $sql1);
-        while ($line = mysqli_fetch_assoc($query1)) {?><?php
-            echo '  <a href="data:application/pdf;base64,' . base64_encode($line['kwitantie']) . '"> Show Kwitantie </a>'; } ?><?php echo "</td>
-            
-      <td>".$row["Begin_datum"]."</td>
+      <td>";    
+      $sql1   = "SELECT * from exacte where exacte_id= $exacteid";
+          $query1 = mysqli_query($conn, $sql1); 
+          while ($line = mysqli_fetch_assoc($query1)) {?><?php
+              echo '  <a href="data:application/pdf;base64,' . base64_encode($line['kwitantie']) . '"> Show Kwitantie </a>'; } ?><?php echo "</td>
+      <td>".$row["datum"]."</td>
      
       </tr>
       ";
