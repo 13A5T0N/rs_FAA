@@ -89,7 +89,12 @@ $project = $_POST["project"];
 						<span>Taken</span>
 					</a>
 				</li>
-
+				<li>
+          <a href="Begrotingen.php">
+            <span><i class="fa fa-users"></i></span>
+            <span>Begrotingen</span>
+          </a>
+        </li>
 				<li>
 					<a href="allaround.php">
 						<span><i class="fa fa-users"></i></span>

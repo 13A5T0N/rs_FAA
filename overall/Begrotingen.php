@@ -66,47 +66,39 @@ include "../conn.php";
       <span>NATIN</span>
     </div>
     <nav>
-      <ul>
-        <li>
-          <a href="index.php">
-            <span><i class="fa fa-home"></i></span>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a href="projects.php">
-            <span><i class="fa fa-product-hunt"></i></span>
-            <span>Projects</span>
-          </a>
-        </li>
-        <li>
+			<ul>
+				<li>
+					<a href="index.php">
+						<span><i class="fa fa-home"></i></span>
+						<span>Startpagina</span>
+					</a>
+				</li>
+				<li>
+					<a href="projects.php">
+						<span><i class="fa fa-product-hunt"></i></span>
+						<span>Projecten</span>
+					</a>
+				</li>
+				<li>
+					<a href="taakform.php">
+						<span><i class="fa fa-tasks"></i></span>
+						<span>Taken</span>
+					</a>
+				</li>
+				<li>
           <a href="Begrotingen.php">
-            <span><i class="fa fa-usd"></i></span>
+            <span><i class="fa fa-users"></i></span>
             <span>Begrotingen</span>
           </a>
         </li>
-        <li>
-          <a href="bedrijf.php">
-            <span><i class="fa fa-building-o"></i></span>
-            <span>Bedrijf</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="taakform.php">
-            <span><i class="fa fa-tasks"></i></span>
-            <span>Taken</span>
-          </a>
-        </li>
-        <li>
-          <a href="projecten_uitgaven.php">
-            <span><i class="fa fa-book"></i></span>
-            <span>Rapporten</span>
-          </a>
-        </li>
-      </ul>
-
-    </nav>
+				<li>
+					<a href="allaround.php">
+						<span><i class="fa fa-users"></i></span>
+						<span>Gebruikers</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
   </div>
 
   <div class="main-content">
