@@ -164,7 +164,7 @@ include "../conn.php";
               <tbody id="myTable">
                 <?php
                 if (mysqli_num_rows($query_run) > 0) {
-                  while ($row = mysqli_fetch_assoc($query_run)) {
+                  while ($row = mysqli_fetch_assoc($query_run))  {
 
                 ?>
 

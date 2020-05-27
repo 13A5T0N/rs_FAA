@@ -26,7 +26,7 @@ if (getimagesize($_FILES['kwitantie']['tmp_name']) == true)
 $query = "INSERT INTO `exacte` (`bedrijf_id`,`taak_id`, `kwitantie`,`prijs`, `datum`) VALUES('$bedrijfnaam','$Taak','$image','$prijs','$date')";
 
 
- $conn->query($query);
+ $conn->query($query); 
 
 header('Location: Begrotingen.php');
 ?>

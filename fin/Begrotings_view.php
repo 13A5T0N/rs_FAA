@@ -182,14 +182,19 @@ $exacte = $_POST["exacte"];
 										</tr>
 										<tr>
 											<td>Kwitantie</td>
-											<td><img src="<?php echo $row['kwitantie'] ?>" alt=""></td>
+											<td><?php   $exacteid = $row["exacte_id"];
+    $sql1   = "SELECT * from exacte where exacte_id= $exacteid";
+		$query1 = mysqli_query($conn, $sql1);
+		
+        while ($line = mysqli_fetch_assoc($query1)) {?><?php
+            echo '  <a href="data:application/pdf;base64,' . base64_encode($line['kwitantie']) . '"> Show Kwitantie </a>'; } ?></td>
 										</tr>
 										<td>Start datum</td>
 										<td><?php echo $row['datum'];
 											?></td>
 										</tr>
 								<?php
-									}
+									} 
 								} else {
 									echo "No records found";
 								}
